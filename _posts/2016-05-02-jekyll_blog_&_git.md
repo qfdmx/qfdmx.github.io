@@ -8,10 +8,12 @@ title: jekyll+git搭建一个简易博客
 
 1. 创建一个使用你的用户名(以qfdmx为例)的仓库。
 2. 克隆到本地。
-	git clone https://github.com/qfdmx/qfdmx.github.io
+<div class="code">git clone https://github.com/qfdmx/qfdmx.github.io</div>
 3. 创建第一个网页。
+<div class="code">
 	cd qfdmx.github.io
 	echo "hello world" > index.html
+</div>
 4. push it
 	git add --all
 	git commit -m "hello"
