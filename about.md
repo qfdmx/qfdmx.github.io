@@ -1,7 +1,7 @@
 ---
 layout: page
 title: (╯‵□′)╯︵┻━┻z
-permalink: /(╯‵□′)╯︵┻━┻z/
+permalink: /about#/
 ---
 
 我是一个人，也一个人。
