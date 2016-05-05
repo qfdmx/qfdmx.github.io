@@ -49,6 +49,29 @@ gem install jekyll
 
 2.配置jekyll环境变量，当jekyll报错命令找不到，先找到安装路径，然后添加到环境变量中。
 
+{% highlight ruby %}
 #需要注意安装的用户，可能安装位置为用户目录或者/usr下
 find ~ -name jekyll*
+#vi /etc/profile
+#echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/bin:/home/qfdmx/.gem/ruby/2.3.0/gems/jekyll-2.5.3/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/qfdmx/.gem/ruby/2.3.0/gems/jekyll-2.5.3/bin/
+#执行jekyll
+jekyll new myblog
+#或者已经存在一个目录
+jekyll new .
+{% endhighlight %}
+
+3.git提交博客并访问
+
+{% highlight ruby %}
+#可以克隆一个基础博客作为jekyll文本基础作为参考
+#https://github.com/danielmcgraw/Jekyll-Base.git
+vi _posts/1985-10-26-Test-Post.md
+#提交代码
+git add --all
+git commit -m "new blog"
+git push origin master
+#git push origin master --force
+#登录http://username.github.io访问博客，可能需要缓冲
+{% endhighlight %}
 
