@@ -20,7 +20,7 @@ echo "hello world" > index.html
 
 4.push it
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 git add --all
 git commit -m "hello"
 git push -u origin master (强制提交git push origin master --force)
@@ -39,6 +39,7 @@ gem sources
 #删除原有源
 gem sources -r https://rubygems.org/
 #添加一个源
+#常用的淘宝源已经被墙，下面的源为山东理工大学的gem源
 gem sources -a http://ruby.sdutlinux.org/
 #更新RubyGems
 gem update
@@ -48,6 +49,6 @@ gem install jekyll
 
 2.配置jekyll环境变量，当jekyll报错命令找不到，先找到安装路径，然后添加到环境变量中。
 
+#需要注意安装的用户，可能安装位置为用户目录或者/usr下
 find ~ -name jekyll*
 
-\#
