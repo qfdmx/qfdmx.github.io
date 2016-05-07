@@ -1,6 +1,6 @@
 ---
 layout: page
-title: (╯°Д°)╯︵ ┻━┻
+title: "(╯°Д°)╯︵ ┻━┻"
 permalink: /about/
 ---
 我是一个人，也一个人。
