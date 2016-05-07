@@ -1,9 +1,10 @@
 ---
 layout: post
-title: jekyll+git搭建一个简易博客
+title:  "git+jekyll搭建一个免费的简易博客"
+date:   2016-05-02 10:15:42
+categories: git jekyll 
 ---
-
-概要介绍：
+`概要介绍`：
   首先注册一个git账号了解简单的git操作，然后在[Github Pages](https://pages.github.com/)进行简单的网页创建\(hello word\)。再使用jekyll进行博客的的规划，熟悉html知识进行简易的blog的搭建，提交代码进行，日后再进行博客的模板优化。
 
 一创建git账户，创建hello wold博客
