@@ -15,10 +15,14 @@ description: 日志格式书写参照.
 
 ## jekyll
 
+### jekyll
+
 # [Jekyll](https://jekyllrb.com/)
 
 Jekyll
 ======
+
+# `jekyll`
 
 # 标题下面的链接标签书写
 
@@ -48,7 +52,7 @@ Jekyll is a simple, blog-aware, static site generator perfect for personal, proj
 
 	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
 
-2,两行书写不空格或者空多行
+2,两行书写不空行或者空多行，不空行显示为一行，空一行或者多行显示为两个段落
 
 Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
 Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
@@ -58,7 +62,7 @@ Jekyll is a simple, blog-aware, static site generator perfect for personal, proj
 
 Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
 
-3,使用提示性字体
+3,使用提示性字体\(\`\`\)
 
 `Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
 
