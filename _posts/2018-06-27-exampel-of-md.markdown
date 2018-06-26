@@ -7,17 +7,20 @@ tags: markdown
 description: 日志格式书写参照.
 ---
 
-#标题展示
+# 标题展示
+
+#jekyll
 
 # Jekyll
+
+## jekyll
 
 # [Jekyll](https://jekyllrb.com/)
 
 Jekyll
 ======
 
-
-#标题下面的链接标签书写
+# 标题下面的链接标签书写
 
 [![Gem Version](https://img.shields.io/gem/v/jekyll.svg)][ruby-gems]
 [![Linux Build Status](https://img.shields.io/travis/jekyll/jekyll/master.svg?label=Linux%20build)][travis]
@@ -35,17 +38,40 @@ Jekyll
 [travis]: https://travis-ci.org/jekyll/jekyll
 [appveyor]: https://ci.appveyor.com/project/jekyll/jekyll/branch/master
 
-#正文文本书写
+# 文本换行
+
+原句:
+
+Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+1,起始使用Tab
+
+	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+2,两行书写不空格或者空多行
+
+Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+
+
+
+Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+3,使用提示性字体
+
+`Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
+
+# 正文文本书写
 
 Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites. Think of it like a file-based CMS, without all the complexity. Jekyll takes your content, renders Markdown and Liquid templates, and spits out a complete, static website ready to be served by Apache, Nginx or another web server. Jekyll is the engine behind [GitHub Pages](https://pages.github.com), which you can use to host sites right from your GitHub repositories.
 
 See: [https://jekyllrb.com/philosophy](https://jekyllrb.com/philosophy)
-The content of this theme is distributed and licensed under a
-![License Badge]({{ site.baseurl }}/assets/images/cc_by_88x31.png)
+The content of this theme is distributed and licensed under a![License Badge]({{ site.baseurl }}/assets/images/cc_by_88x31.png)
 
 [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
 
-#标题使用
+# 分标题使用
 
 ###  1，ASCII Generator
 
@@ -65,7 +91,7 @@ The content of this theme is distributed and licensed under a
 [Jekyll-Clean-Theme-url]: https://github.com/scotte/jekyll-clean
 [xixia-url]: http://xixia.info/
 
-#安装使用教程书写建议
+# 安装使用教程书写建议
 
 ## Getting Started
 
@@ -74,7 +100,7 @@ The content of this theme is distributed and licensed under a
 * Take a gander at some existing [Sites](https://wiki.github.com/jekyll/jekyll/sites)
 * [Fork](https://github.com/jekyll/jekyll/fork) and [Contribute](https://jekyllrb.com/docs/contributing/) your own modifications
 
-#链接中插入醒目提示
+# 链接中插入醒目提示
 
 * Have questions? Check out our official forum community [Jekyll Talk](https://talk.jekyllrb.com/) or [`#jekyll` on irc.freenode.net](https://botbot.me/freenode/jekyll/)
 
@@ -97,7 +123,7 @@ conduct.
 
 See the [LICENSE](https://github.com/jekyll/jekyll/blob/master/LICENSE) file.
 
-#HTML语法使用
+# HTML语法使用
 
 `markdown遇到HTML标签将不适用markdown语法`
 
