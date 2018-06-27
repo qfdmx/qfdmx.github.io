@@ -146,7 +146,8 @@ In order to have a more open and welcoming community, Jekyll adheres to a
 conduct.
 
 [welcome-to-jekyll.markdown](2016-05-01-welcome-to-jekyll.markdown)
-[welcome-to-jekyll.markdown](welcome-to-jekyll.markdown)
+
+[welcome-to-jekyll.markdown](http://qfdmx.github.io/jekyll/update/2016/05/01/welcome-to-jekyll.html)
 
 ## Diving In
 
