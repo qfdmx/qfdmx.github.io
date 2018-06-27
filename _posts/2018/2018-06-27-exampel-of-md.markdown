@@ -145,7 +145,8 @@ In order to have a more open and welcoming community, Jekyll adheres to a
 [code of conduct](CODE_OF_CONDUCT.markdown) adapted from the Ruby on Rails code of
 conduct.
 
-[welcome-to-jekyll.markdown]({2016-05-01-welcome-to-jekyll.markdown)
+[welcome-to-jekyll.markdown](2016-05-01-welcome-to-jekyll.markdown)
+[welcome-to-jekyll.markdown](welcome-to-jekyll.markdown)
 
 ## Diving In
 
