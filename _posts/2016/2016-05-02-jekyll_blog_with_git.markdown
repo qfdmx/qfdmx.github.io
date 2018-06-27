@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "git+jekyll搭建一个免费的简易博客"
-date:   2016-05-02 10:15:42
+date:   2016-05-02 10:15:42 +0800
 categories: jekyll 
 tags: Jekyll
 description: The read me page of Jekyll.

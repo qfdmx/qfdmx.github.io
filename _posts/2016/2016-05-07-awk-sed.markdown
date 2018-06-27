@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "sed与awk学习日志"
-date:   2016-05-07 18:40:00
+date:   2016-05-07 18:40:00 +0800
 categories: cli sed&awk
 tags: shell
 description: sed awk 常用方法

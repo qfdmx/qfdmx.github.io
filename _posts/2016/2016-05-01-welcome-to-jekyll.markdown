@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Welcome to Jekyll!"
-date:   2016-05-01 08:49:38
+date:   2016-05-01 08:49:38 +0800
 categories: jekyll update
 tags: Jekyll
 description: The read me page of Jekyll.

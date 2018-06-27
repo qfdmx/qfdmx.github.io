@@ -1,12 +1,11 @@
 ---
 layout: post
-title:  "markdown 日志参照"
+title:  "markdown 书写格式参照"
 date:   2018-06-27 06:01:51 +0800
 categories: Jekyll
 tags: markdown
-description: 日志格式书写参照.
+description: markdown格式书写参照.
 ---
-
 # 标题展示
 
 #jekyll
@@ -17,12 +16,14 @@ description: 日志格式书写参照.
 
 ### jekyll
 
+#### jekyll
+
 # [Jekyll](https://jekyllrb.com/)
+
+# `jekyll`
 
 Jekyll
 ======
-
-# `jekyll`
 
 # 标题下面的链接标签书写
 
@@ -68,18 +69,47 @@ Jekyll is a simple, blog-aware, static site generator perfect for personal, proj
 
 # 正文文本书写
 
-Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites. Think of it like a file-based CMS, without all the complexity. Jekyll takes your content, renders Markdown and Liquid templates, and spits out a complete, static website ready to be served by Apache, Nginx or another web server. Jekyll is the engine behind [GitHub Pages](https://pages.github.com), which you can use to host sites right from your GitHub repositories.
+插入一个网址链接
 
-See: [https://jekyllrb.com/philosophy](https://jekyllrb.com/philosophy)
+Jekyll is the engine behind [GitHub Pages], which you can use to host sites right from your GitHub repositories.
+
+Jekyll is the engine behind [GitHub Pages](https://pages.github.com), which you can use to host sites right from your GitHub repositories.
+
+Jekyll is the engine behind [GitHub Pages][GitHub Pages-url], which you can use to host sites right from your GitHub repositories.
+
+[GitHub Pages-url]:https://pages.github.com
+
+插入一个本地图片链接
+
 The content of this theme is distributed and licensed under a![License Badge]({{ site.baseurl }}/assets/images/cc_by_88x31.png)
 
-[Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
+代码书写格式
+
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
 
 # 分标题使用
 
 ###  1，ASCII Generator
 
 ###  2，Chris.com
+
+1,ASCII Generator
+
+2,Chris.com
+
+* ASCII Generator
+
+* Chris.com
+
+# example
+
+带链接标题推荐格式
 
 1，[Jekyll][jekyll-url]
 
@@ -95,7 +125,8 @@ The content of this theme is distributed and licensed under a![License Badge]({{
 [Jekyll-Clean-Theme-url]: https://github.com/scotte/jekyll-clean
 [xixia-url]: http://xixia.info/
 
-# 安装使用教程书写建议
+
+安装使用教程书写建议
 
 ## Getting Started
 
@@ -104,15 +135,17 @@ The content of this theme is distributed and licensed under a![License Badge]({{
 * Take a gander at some existing [Sites](https://wiki.github.com/jekyll/jekyll/sites)
 * [Fork](https://github.com/jekyll/jekyll/fork) and [Contribute](https://jekyllrb.com/docs/contributing/) your own modifications
 
-# 链接中插入醒目提示
+标题、链接、颜色提示混用
 
 * Have questions? Check out our official forum community [Jekyll Talk](https://talk.jekyllrb.com/) or [`#jekyll` on irc.freenode.net](https://botbot.me/freenode/jekyll/)
 
-## Code of Conduct
+404引用
 
 In order to have a more open and welcoming community, Jekyll adheres to a
 [code of conduct](CODE_OF_CONDUCT.markdown) adapted from the Ruby on Rails code of
 conduct.
+
+[welcome-to-jekyll.markdown](welcome-to-jekyll.markdown)
 
 ## Diving In
 
@@ -127,7 +160,7 @@ conduct.
 
 See the [LICENSE](https://github.com/jekyll/jekyll/blob/master/LICENSE) file.
 
-# HTML语法使用
+HTML语法使用
 
 `markdown遇到HTML标签将不适用markdown语法`
 
@@ -162,15 +195,4 @@ Map (C) 1998 Matthew Thomas. Freely usable if this line is included. <-
 {% endhighlight %}
 
 <br/>
-
-#代码书写格式
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
 

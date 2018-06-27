@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "xterm配置"
-date:   2016-05-07 00:15:42
+date:   2016-05-07 00:15:42 +0800
 categories: xterm
 tags: system
 description: xterm 配置
