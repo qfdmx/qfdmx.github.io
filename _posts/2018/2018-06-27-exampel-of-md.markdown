@@ -2,8 +2,8 @@
 layout: post
 title:  "markdown 书写格式参照"
 date:   2018-06-27 06:01:51 +0800
-categories: Jekyll
-tags: markdown
+categories: format
+tags: Jekyll markdown
 description: markdown格式书写参照.
 ---
 ## 标题展示

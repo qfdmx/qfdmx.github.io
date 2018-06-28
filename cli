@@ -1,0 +1,9 @@
+git clone git@github.com:qfdmx/qfdmx.github.io.git
+
+git add --all
+git commit -m "restore"
+git push -u origin master #do not try
+
+bundle exec jekyll server -w --host=192.168.0.5
+jekyll server -w --host=192.168.0.5
+jekyll server --baseurl=/jekyll/xixia -w --host=192.168.0.5

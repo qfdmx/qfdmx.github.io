@@ -1,7 +1,7 @@
 # Jekyll configuration
 
 name: 闪电猫
-description: 菜鸟中的菜猫，不小心闪到腰
+description: 菜鸟中的菜猫
 
 # url is currently only used only for the RSS feed in feed.xml
 url: https://github.com/qfdmx/qfdmx.github.io
@@ -13,10 +13,12 @@ url: https://github.com/qfdmx/qfdmx.github.io
 baseurl: '/'
 ## default date_format
 date_format: 
-  title: "%B-%-d-%Y"
-  archive: "%b"
-  categories: "%b-%Y"
-  tag: "%b-%Y"
+  title: "%B-%d-%Y"
+#  archive: "%b"
+  archive: "%b-%d"
+#  categories: "%b-%Y"
+  categories: "%B-%d-%Y"
+  tag: "%b-%d-%Y"
 # Language
 lan: "cn" 
 
@@ -26,4 +28,4 @@ highlighter: rouge
 markdown: kramdown
 plugins: ['jekyll-paginate']
 
-exclude: ['README.md', 'LICENSE', "*.bak"]
+exclude: ['README.md', 'LICENSE', "*.bak",'bk','cli']
