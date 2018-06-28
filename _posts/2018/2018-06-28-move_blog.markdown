@@ -22,7 +22,7 @@ description: 搭建一个简易博客之后进行升级操作,一波坑爹的操
 
 ### 2.安装调试模板
 
-jekyll是ruby编写的，需要使用ruby安装使用，以centos6.5上安装，其他系统作为参考。`建议使用(ruby官网releases)[https://www.ruby-lang.org/en/downloads/releases/]最新稳定版本进行安装`，当前20180629日为[ruby-2.5.1](https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.gz)版本，点击下载tar包。
+jekyll是ruby编写的，需要使用ruby安装使用，以centos6.5上安装，其他系统作为参考。建议使用[`ruby官网releases`](https://www.ruby-lang.org/en/downloads/releases/)最新稳定版本进行安装，当前20180629日为[`ruby-2.5.1`](https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.gz)版本，点击下载tar包。
 
 ruby需要使用源，推荐使用[ruby中国](https://gems.ruby-china.com/)的源，当然也可以使用USTC源
 
@@ -54,6 +54,8 @@ gem install bundle -V
 	unzip jekyll-xixia-gh-pages.zip
 
 启动模板（建议先关闭centos防火墙）
+	
+	/etc/init.d/iptables stop
 	
 	jekyll server --baseurl=/jekyll/xixia -w --host=192.168.0.5
 

@@ -149,6 +149,8 @@ print_hi('Tom')
 
 [welcome-to-jekyll.markdown](2016-05-01-welcome-to-jekyll.markdown)
 
+[move_blog.markdown](move_blog)
+
 ## Diving In
 
 * [Migrate](http://import.jekyllrb.com/docs/home/) from your previous system
