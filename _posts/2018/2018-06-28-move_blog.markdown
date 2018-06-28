@@ -56,7 +56,6 @@ gem install bundle -V
 启动模板（建议先关闭centos防火墙）
 	
 	/etc/init.d/iptables stop
-	
 	jekyll server --baseurl=/jekyll/xixia -w --host=192.168.0.5
 
 提示gem已经重名为plugin,修改\_config.yml文件如下几行
@@ -81,9 +80,7 @@ gem install bundle -V
 将本地代码进行更新后，使用如下命令进行提交
 
 	git add --all
-
 	git commit -m "move my blog"
-
 	git push -u origin master 
 
 提交完成后，等待几分钟便会刷新，登录XXXX.github.io可以查看blog
