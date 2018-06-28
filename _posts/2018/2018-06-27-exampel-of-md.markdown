@@ -6,26 +6,30 @@ categories: Jekyll
 tags: markdown
 description: markdown格式书写参照.
 ---
-# 标题展示
+## 标题展示
 
-#jekyll
+#Jekyll
 
 # Jekyll
 
-## jekyll
+## Jekyll
 
-### jekyll
+### Jekyll
 
-#### jekyll
+#### Jekyll
+
+#### Jekyll
 
 # [Jekyll](https://jekyllrb.com/)
+
+# [Jekyll]()
 
 # `jekyll`
 
 Jekyll
 ======
 
-# 标题下面的链接标签书写
+## 标题下面的链接标签书写
 
 [![Gem Version](https://img.shields.io/gem/v/jekyll.svg)][ruby-gems]
 [![Linux Build Status](https://img.shields.io/travis/jekyll/jekyll/master.svg?label=Linux%20build)][travis]
@@ -43,7 +47,7 @@ Jekyll
 [travis]: https://travis-ci.org/jekyll/jekyll
 [appveyor]: https://ci.appveyor.com/project/jekyll/jekyll/branch/master
 
-# 文本换行
+## 文本换行
 
 原句:
 
@@ -63,11 +67,11 @@ Jekyll is a simple, blog-aware, static site generator perfect for personal, proj
 
 Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
 
-3,使用提示性字体\(\`\`\)
+3,使用\(\`\`\)提示性字体
 
 `Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
 
-# 正文文本书写
+## 正文文本书写
 
 插入一个网址链接
 
@@ -83,7 +87,7 @@ Jekyll is the engine behind [GitHub Pages][GitHub Pages-url], which you can use 
 
 The content of this theme is distributed and licensed under a![License Badge]({{ site.baseurl }}/assets/images/cc_by_88x31.png)
 
-代码书写格式
+## 代码书写格式
 
 {% highlight ruby %}
 def print_hi(name)
@@ -93,7 +97,7 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-# 分标题使用
+## 分标题使用
 
 ###  1，ASCII Generator
 
@@ -107,7 +111,7 @@ print_hi('Tom')
 
 * Chris.com
 
-# example
+## example
 
 带链接标题推荐格式
 
@@ -139,15 +143,11 @@ print_hi('Tom')
 
 * Have questions? Check out our official forum community [Jekyll Talk](https://talk.jekyllrb.com/) or [`#jekyll` on irc.freenode.net](https://botbot.me/freenode/jekyll/)
 
-404引用
-
-In order to have a more open and welcoming community, Jekyll adheres to a
-[code of conduct](CODE_OF_CONDUCT.markdown) adapted from the Ruby on Rails code of
-conduct.
-
-[welcome-to-jekyll.markdown](2016-05-01-welcome-to-jekyll.markdown)
+链接与链接404
 
 [welcome-to-jekyll.markdown](http://qfdmx.github.io/jekyll/update/2016/05/01/welcome-to-jekyll.html)
+
+[welcome-to-jekyll.markdown](2016-05-01-welcome-to-jekyll.markdown)
 
 ## Diving In
 
