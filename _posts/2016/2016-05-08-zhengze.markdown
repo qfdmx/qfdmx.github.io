@@ -2,8 +2,8 @@
 layout: post
 title:  "正则表达式学习"
 date:   2016-05-08 12:00:00 +0800
-categories: cli sed&awk
-tags: 正则
+categories: format
+tags: 正则 sed&awk.
 description: 正则表达式用法
 ---
 
