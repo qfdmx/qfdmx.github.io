@@ -2,9 +2,86 @@
 layout: post
 title:  "Jekyll blog迁移"
 date:   2018-06-28 22:32:45  +0800
-categories:
+categories: blog
 tags: Jekyll
-description: 搭建一个简易博客之后进行升级操作,→_→一波坑爹的操作
+description: 搭建一个简易博客之后进行升级操作,一波坑爹的操作.
 ---
-`上一波神奇的github初始，搭建的简易blog并不令我`
-# 
+`上一波神奇的github初始，搭建的简易blog并不令我满意，这次的博客模板基本符合使用要求，着手干了一周的迁移工作，记录一下`
+
+选择jekyll+github优势
+
+* 托管在github上，送域名而且不用担心被查或者下架，不限期限
+
+* github直接解析jekyll代码不需要其他操作
+
+* jekyll支持Markdown语法，轻便容易编写
+
+### 1.模板选择
+
+可以登录[jekyll themes](http://jekyllthemes.org/)，选择一个自己喜欢的模板，这里以我的blog选的模版[xixia theme](http://jekyllthemes.org/themes/xixia/)为例，不能访问的情况直接在[xixia git](https://github.com/zxixia/jekyll-xixia)上clone源码。
+
+### 2.安装调试模板
+
+jekyll是ruby编写的，需要使用ruby安装使用，以centos6.5上安装，其他系统作为参考。`建议使用(ruby官网releases)[https://www.ruby-lang.org/en/downloads/releases/]最新稳定版本进行安装`，当前20180629日为[ruby-2.5.1](https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.gz)版本，点击下载tar包。
+
+ruby需要使用源，推荐使用[ruby中国](https://gems.ruby-china.com/)的源，当然也可以使用USTC源
+
+{% highlight ruby %}
+
+#===>安装ruby
+tar xzvf ruby-2.5.1.tar.gz
+cd ruby-2.5.1
+./configure --prefix=/usr/local/ruby-2.5.1/
+make && make install
+echo "PATH=$PATH:/usr/local/ruby-2.5.1/bin" >> /etc/profile
+source /etc/profile
+
+#===>gem更换源
+gem sources
+gem sources -r XXXXXX
+gem sources -a https://gems.ruby-china.com/
+
+#===>安装Jekyll
+gem install jekyll -V 
+gem install bundle -V
+
+{% endhighlight %}
+
+### 3.Jekyll模板调试
+
+解压模板
+
+	unzip jekyll-xixia-gh-pages.zip
+
+启动模板（建议先关闭centos防火墙）
+	
+	jekyll server --baseurl=/jekyll/xixia -w --host=192.168.0.5
+
+提示gem已经重名为plugin,修改\_config.yml文件如下几行
+
+	baseurl: '/'
+	plugins: ['jekyll-paginate']
+
+再次执行启动模板命令既可
+
+### 4.文档迁移
+	
+将已经的\_posts文件迁移到新的\_posts既可
+
+### 5.github提交
+
+复制ssh-keygen命令生成.ssh/id_rsa.pub文件所有内容，粘贴到github中settings-ssh设置中
+
+新建项目或者使用已存在的项目，然后使用命令clone项目
+
+	git clone git@github.com:XXXX/XXXX.github.io.git
+
+将本地代码进行更新后，使用如下命令进行提交
+
+	git add --all
+
+	git commit -m "move my blog"
+
+	git push -u origin master 
+
+提交完成后，等待几分钟便会刷新，登录XXXX.github.io可以查看blog

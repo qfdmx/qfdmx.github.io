@@ -13,5 +13,8 @@ categories:
 tags: 
 description: 
 ---
-# 标题" > "`date +%Y`"/"$ddate-$1".markdown
+# 标题
+{% highlight ruby %}
+{% endhighlight %}
+" > "`date +%Y`"/"$ddate-$1".markdown
 
