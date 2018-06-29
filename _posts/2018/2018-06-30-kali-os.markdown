@@ -1,0 +1,57 @@
+---
+layout: post
+title:  "kali linux初识"
+date:   2018-06-30 02:44:41  +0800
+categories: 渗透
+tags: kali
+description: 
+---
+### kali linux由来
+
+前身为back tarck系统，一直到bt5 R3版本后不再维护，改为kali linux，更换底层基于Debian系统，因为Ubuntu维护期间过短，选用上层万年不变的Debian系统，出于稳定的考虑。。。嗯,而所谓的BT系统为hack手捏的一个工具，希望通过从头再构建一个渗透工具（没错演绎了）。
+
+### kali 特点
+
+kali linux为渗透工具合集，不适合linux初学者使用，部分工具甚至相互冲突，所以不建议linux
+初学者直接使用，曾经见过某中文bt论坛上，有人问如何启动bt4系统界面。。。很多工具是用命令行效率更高，图形并不一定是最好的工具。
+
+### kali linux发行版本
+
+[backtrack官网地址](https://www.backtrack-linux.org/)
+
+[kali linux官网地址](https://www.kali.org/downloads/)
+
+
+
+### kali linux初始配置
+
+* 静态网址配置
+
+
+	vi /etc/network/interfaces
+
+{% highlight ruby %}	
+#allow-hotplug eth0
+auto eth0
+iface eth0 inet static
+	address 192.168.0.6
+	netmask 255.255.255.0
+	gateway 192.168.0.1
+{% endhighlight %}
+
+	/etc/init.d/networking restart
+
+
+* 启用sshd服务
+
+	/etc/init.d/ssh restart
+
+* DNS配置
+
+	vi /etc/resolv.conf
+
+{% highlight ruby %}
+nameserver 221.130.33.52
+nameserver 182.18.99.6
+{% endhighlight %}
+
