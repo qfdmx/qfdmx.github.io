@@ -21,7 +21,7 @@ description: 装饰器初识
 
 2,高阶函数
 
-	* 把一个函数名当做实参传给另一个函数（在不被装饰函数源代码的情况下为其添加功能）
+	* 把一个函数名当做实参传给另一个函数（在不修改被装饰函数源代码的情况下为其添加功能）
 	* 返回值中包含函数名（不修改函数的调用方式）
 
 3,嵌套函数
@@ -159,4 +159,46 @@ test1()
 test2("alex")
 {% endhighlight %}
 
+装饰器进阶用法
 
+1.原函数中包含return值
+
+2.装饰器传递一个参数
+
+{% highlight ruby %}
+user = "alex"
+passwd = "12345"
+def login(login_type):		#@longin参数先传递到第一层
+    def out_wrapper(func):	#第二次开始传递函数名
+        def wrapper(*args,**kwargs):
+            if login_type == "local":
+                username = input("username:").strip()
+                password = input("password:").strip()
+                if username == user and password == passwd:
+                    res = func(*args,**kwargs)
+                    print("----after authentication")
+                    return res
+                else:
+                    print("username or password is invalid")
+                    exit()
+            elif login_type == "ldap":
+                print("搞毛线ldap")
+        return wrapper
+    return out_wrapper
+
+def index():
+    print("welcome to index")
+
+@login(login_type="local")	#加入传递参数
+def home():
+    print("welcome to home")
+    return "for home"
+
+@login(login_type="ldap")	#加入传递参数
+def bbs():
+    print("welcome to bbs")
+
+index()
+print(home())
+bbs()
+{% endhighlight %} 
