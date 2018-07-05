@@ -3,7 +3,7 @@ layout: post
 title:  "生成器与迭代器"
 date:   2018-07-04 21:59:33  +0800
 categories: python3
-tags: 生成器 迭代器
+tags: generator iterator
 description: 
 ---
 ### 列表生成器
@@ -174,7 +174,7 @@ while True:
 	except StopIteration:
 		break
 
-迭代器取文件
+#迭代器取文件
 
 for line in f:
 	print(line)
