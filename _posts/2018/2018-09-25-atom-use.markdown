@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "atom使用"
+title:  "atom连接github"
 date:   2018-09-25 21:59:33  +0800
 categories: git
 tags: github atom
@@ -13,7 +13,7 @@ description: windows下如何使用atom连接github
 
 本文以解决windows坑爹的配置为主Linux仅部分具有参考价值，至于Linux部分更新，看我心情咯
 
-#1.atom 安装快捷及使用
+# 1.atom 安装快捷及使用
 
 atom的win安装不做介绍，请记住安装位置，后面要用
 
@@ -22,20 +22,35 @@ atom常用快捷键（这个必须会）
 ctrl+shift+p 	#呼出命令菜单
 ctrl+.				#去掉key binding resolver下部提示框
 
-#2.win生成ssh-keygen
+# 2.win生成ssh-keygen
 
 Win+R唤出运行输入cmd，输入ssh-keygen，一直敲回车。然后在C:\Users\Administrator\.ssh产生公钥id_rsa和私钥id_rsa.pub，将公钥里面的全部内容复制，到github中settings的SSH and GPG keys，点击New SSH key，粘贴刚才复制的公钥并起名字
 
 此时不用使用ssh -T -v git@github.com命令进行验证，因为默认的ssh直接连接是会直接提示权限拒绝，这个命令实在外置的git中测试使用的。在win cmd或者linux shell中执行ssh这个测试会报错，实际不是咸猪手都不会出错的
 
-#3.git clone克隆一个仓库
+# 3.git clone克隆一个仓库
 
 使用ctrl+shift+p呼出命令菜单,输入git clone敲回车（即使用Github:clone），粘贴clone地址和本地位置。等待clone 完成
 
-#4.git push文件
+# 4.git push文件
 
 此时在右侧project上进行项目修改，右侧为git工具，没错是内置的工具。
 
 修改后的文件会出现在右上方为“unstaged changes（未缓存的修改）”,点击该文字右侧stage all（缓存所有），然后文件出现在右中部，在commit message中输入信息后，点击commit to master。此时会在本地git上保存修改。
 
-当提交到github时候出现问题
+当提交到github时候出现问题，右键选择的fetch(捕获)中push报错需要git声明账户，然而我们没有独立安装git软件，那么就需要用内置的，在atom安装路径（笔者使用默认的路径）中C:\Users\Administrator\AppData\Local\atom\app-1.28.0\resources\app.asar.unpacked\node_modules\dugite\git\cmd包含git.exe没错就是它，内置的git软件，将路径复制并且在cmd中cd到该路径
+
+执行如下命令
+
+	git.exe config --global user.email git@gmail.com
+	git.exe config --global user.name name
+
+然后回到atom界面进行fetch中进行提交。提交成功
+
+# 5.关于其他
+
+发现ssh-keygen实际被拒绝是验证linux连接也会失败但是执行git push -u origin master提交成功，说明不是key问题，是验证方式有问题，key是么有问题的。
+
+关于git内置的使用，是偶尔发现的，既然atom自身可以用命令执行提交并且返回错误，那么它一定是调用了内置的git，因为跟本没有装过git。至于位置使用windows资源管理器搜索就能找到的。
+
+至于内置git之外还有一个ssh也找到了，在找到的git文件路径下有etc目录，下面有ssh配置文件ssh_config和sshd_config，即为内置git使用的ssh配置文件，但是很可惜，发现里面不用修改ssh的id_rsa文件位置就行，甚至写错也不要紧的，内置git默认会去取当前用户的.ssh文件夹下的公钥和私钥去验证
