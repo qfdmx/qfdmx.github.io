@@ -19,7 +19,7 @@ atom的win安装不做介绍，请记住安装位置`C:\Users\Administrator\AppD
 
 atom常用快捷键（这个必须会）:
 
-	ctrl+shift+p 	#呼出命令菜单
+	ctrl+shift+p 		#呼出命令菜单
 	ctrl+.   		#去掉key binding resolver下部提示框
 
 ### 2.win生成ssh-keygen
