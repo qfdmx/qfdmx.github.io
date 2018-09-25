@@ -13,26 +13,34 @@ description: windows下如何使用atom连接github
 
 本文以解决windows坑爹的配置为主Linux仅部分具有参考价值，至于Linux部分更新，看我心情咯
 
-# 1.atom 安装快捷及使用
+## 1.atom 安装快捷及使用
 
 atom的win安装不做介绍，请记住安装位置，后面要用
 
-atom常用快捷键（这个必须会）
+atom常用快捷键（这个必须会）:
 
-ctrl+shift+p 	#呼出命令菜单
-ctrl+.				#去掉key binding resolver下部提示框
+	ctrl+shift+p 	#呼出命令菜单
+	ctrl+.				#去掉key binding resolver下部提示框
 
-# 2.win生成ssh-keygen
+## 2.win生成ssh-keygen
 
-Win+R唤出运行输入cmd，输入ssh-keygen，一直敲回车。然后在C:\Users\Administrator\.ssh产生公钥id_rsa和私钥id_rsa.pub，将公钥里面的全部内容复制，到github中settings的SSH and GPG keys，点击New SSH key，粘贴刚才复制的公钥并起名字
+Win+R唤出运行输入cmd，输入
 
-此时不用使用ssh -T -v git@github.com命令进行验证，因为默认的ssh直接连接是会直接提示权限拒绝，这个命令实在外置的git中测试使用的。在win cmd或者linux shell中执行ssh这个测试会报错，实际不是咸猪手都不会出错的
+	ssh-keygen
 
-# 3.git clone克隆一个仓库
+一直敲回车。然后在C:\Users\Administrator\.ssh产生公钥id_rsa和私钥id_rsa.pub，将公钥里面的全部内容复制，到github中settings的SSH and GPG keys，点击New SSH key，粘贴刚才复制的公钥并起名字
 
-使用ctrl+shift+p呼出命令菜单,输入git clone敲回车（即使用Github:clone），粘贴clone地址和本地位置。等待clone 完成
+此时不用使用`ssh -T -v git@github.com`命令进行验证，因为默认的ssh直接连接是会直接提示权限拒绝，这个命令实在外置的git中测试使用的。在win cmd或者linux shell中执行ssh这个测试会报错，实际不是咸猪手都不会出错的
 
-# 4.git push文件
+## 3.git clone克隆一个仓库
+
+使用ctrl+shift+p呼出命令菜单,输入
+
+	git clone
+
+敲回车（即使用Github:clone），粘贴clone地址和本地位置。等待clone 完成
+
+## 4.git push文件
 
 此时在右侧project上进行项目修改，右侧为git工具，没错是内置的工具。
 
@@ -47,7 +55,7 @@ Win+R唤出运行输入cmd，输入ssh-keygen，一直敲回车。然后在C:\Us
 
 然后回到atom界面进行fetch中进行提交。提交成功
 
-# 5.关于其他
+## 5.关于其他
 
 发现ssh-keygen实际被拒绝是验证linux连接也会失败但是执行git push -u origin master提交成功，说明不是key问题，是验证方式有问题，key是么有问题的。
 
