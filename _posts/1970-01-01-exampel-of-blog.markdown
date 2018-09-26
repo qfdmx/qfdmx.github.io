@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "blog"
-date:   2018-06-27 06:01:51 +0800
+date:   1970-01-01 00:00:01 +0800
 categories: example
 tags:
 description:
@@ -101,7 +101,7 @@ print_hi('Tom')
 	end
 	print_hi('Tom')
 	#=> prints 'Hi, Tom' to STDOUT.
-	
+
 
 
 ### 图片
