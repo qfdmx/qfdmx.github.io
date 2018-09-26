@@ -7,9 +7,170 @@ tags: Jekyll markdown
 description: markdown格式书写参照.
 ---
 
-本文以
+本文以jekyll中markdown显示格式为主，jekyll对于markdwon的支持便于blog的编写，同时jekyll优先处理ruby的格式显示，然后判定markdown的基本语法，本文参考其他markdown语法总结加上实例，介绍内容如下：
 
-首行缩进
+	标题
+
+	正文
+		首行缩进
+		书写特点
+		特殊标记
+
+	插入
+		命令框
+		代码
+		图片
+		超链接
+
+
+
+
+
+
+
+# 一、标题
+
+### 1.使用“=”和“-”
+
+在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。
+
+Jekyll
+======
+
+	Jekyll
+	======
+
+Jekyll
+------
+
+	Jekyll
+	------
+
+### 2.使用“#”
+
+在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）
+
+#Jekyll
+
+	#Jekyll     
+
+# Jekyll
+
+	# Jekyll
+
+
+## Jekyll
+
+	## Jekyll
+
+### Jekyll
+
+	### Jekyll
+
+#### Jekyll
+
+	#### Jekyll
+
+##### Jekyll
+
+	##### Jekyll
+
+###### Jekyll
+
+	###### Jekyll
+
+####### Jekyll
+
+	####### Jekyll
+
+其他常用举例：
+
+# [Jekyll](https://jekyllrb.com/)
+
+	# [Jekyll](https://jekyllrb.com/)
+
+## [Jekyll]()
+
+	## [Jekyll]()
+
+# `jekyll`
+
+	# `jekyll`
+
+### 3.无序列表
+
+在文字开头添加(*, +, and -)实现无序列表。但是要注意在(*, +, and -)和文字之间需要添加空格。（建议：一个文档中只是用一种无序列表的表示方式）
+
+* 无序列表1
+* 无序列表1
+
+
++ 无序列表2
++ 无序列表2
+
+
+- 无序列表3
+- 无序列表3
+
+
+	* 无序列表1
+	* 无序列表1
+
+
+	+ 无序列表2
+	+ 无序列表2
+
+
+	- 无序列表3
+	- 无序列表3
+
+`两级无序列表，建议无序列表使用一种，两个无序列表间需要空两行避免相互影响`
+
+- 无序列表上级
+- 无序列表上级
+	* 无序列表下级
+	* 无序列表下级
+
+### 4.有序列表
+
+使用数字后面跟上句号。（还要有空格）(数字即使错误也会自动更正)
+
+1. 有序列表
+1. 有序列表
+1. 有序列表
+
+
+	1. 有序列表
+	1. 有序列表
+	1. 有序列表
+
+# 二、正文
+
+## 书写特点
+
+markdown正文每个段落间需要空一行，不空行表示一个段落，虽然标题和正文之间不需要空行，但是为了书写的方便建议还是使用空行，介绍如下：
+
+原句:Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+两行书写不空行或者空多行，不空行显示为一行，空一行或者多行显示为两个段落
+
+Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+
+
+Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+
+
+	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+## 首行缩进与空格
+
+首行缩进用空格（占字符），对于中建议使用两个全角占位符
 
 &emsp;&emsp;首行缩进与空格
 
@@ -30,31 +191,83 @@ description: markdown格式书写参照.
 	&nbsp;或&#160;
 
 
+## 特殊标记
 
-## 标题展示
+### 1.斜体
 
-#Jekyll
+将需要设置为斜体的文字两端使用1个"\*"或者"\_"夹起来
 
-# Jekyll
+*斜体1*   
 
-## Jekyll
+_斜体2_
 
-### Jekyll
+	*斜体1*   
 
-#### Jekyll
+	_斜体2_
 
-#### Jekyll
+### 2.粗体
 
-# [Jekyll](https://jekyllrb.com/)
+将需要设置为斜体的文字两端使用2个"\*"或者"\_"夹起来
 
-# [Jekyll]()
+**粗体1**
 
-# `jekyll`
+__粗体2__
 
-Jekyll
-======
+	**粗体1**
 
-## 标题下面的链接标签书写
+	__粗体2__
+
+### 3.使用\(\`\`\)提示性字体
+
+`Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
+
+	`Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
+
+### 4.其他类型举例
+
+***粗斜体1***
+
+___粗斜体2___
+
+__*`粗斜体+提示性(失败粗)`*__
+
+`***粗斜体+提示性(失败粗斜)***`
+
+	***粗斜体1***
+	___粗斜体2___
+	__*`粗斜体+提示性(失败粗)`*__
+	`***粗斜体+提示性(失败粗斜)***`
+
+# 插入
+
+### 命令框
+
+起始使用Tab
+
+	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
+
+
+
+### 代码(jekyll ruby特有)
+
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+
+### 图片
+### 超链接
+
+
+
+
+### 标签（图片赋予超链接）
+
+标签图片引用网址[shields.io](https://shields.io/#/)
 
 [![Gem Version](https://img.shields.io/gem/v/jekyll.svg)][ruby-gems]
 [![Linux Build Status](https://img.shields.io/travis/jekyll/jekyll/master.svg?label=Linux%20build)][travis]
@@ -72,29 +285,7 @@ Jekyll
 [travis]: https://travis-ci.org/jekyll/jekyll
 [appveyor]: https://ci.appveyor.com/project/jekyll/jekyll/branch/master
 
-## 文本换行
 
-原句:
-
-Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
-
-1,起始使用Tab
-
-	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
-
-2,两行书写不空行或者空多行，不空行显示为一行，空一行或者多行显示为两个段落
-
-Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
-Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
-
-
-
-
-Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
-
-3,使用\(\`\`\)提示性字体
-
-`Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
 
 ## 正文文本书写
 
@@ -112,15 +303,7 @@ Jekyll is the engine behind [GitHub Pages][GitHub Pages-url], which you can use 
 
 The content of this theme is distributed and licensed under a![License Badge]({{ site.baseurl }}/assets/images/cc_by_88x31.png)
 
-## 代码书写格式
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
 
 ## 分标题使用
 
@@ -224,3 +407,13 @@ Map (C) 1998 Matthew Thomas. Freely usable if this line is included. <-
 {% endhighlight %}
 
 <br/>
+
+
+
+
+
+
+
+参考链接
+
+[Markdown 11种基本语法](https://www.cnblogs.com/hnrainll/p/3514637.html)
