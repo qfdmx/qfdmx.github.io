@@ -56,7 +56,7 @@ Win+R唤出运行输入cmd，输入
 	git.exe config --global user.email git@gmail.com
 	git.exe config --global user.name name
 
-然后回到atom界面进行fetch中进行提交。提交成功
+然后回到atom界面进行commit提交，然后在fetch中进行提交github。提交成功
 
 ### 5.关于其他
 
