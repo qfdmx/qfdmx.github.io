@@ -247,6 +247,11 @@ __*`粗斜体+提示性(失败粗)`*__
 	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
 
 
+块注释（blockquote）
+
+	通过在文字开头添加“>”表示块注释。（当>和文字之间添加五个blank时，块注释的文字会有变化。）
+
+
 
 ### 代码(jekyll ruby特有)
 
