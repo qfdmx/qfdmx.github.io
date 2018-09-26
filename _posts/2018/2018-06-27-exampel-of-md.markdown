@@ -1,11 +1,36 @@
 ---
 layout: post
-title:  "markdown 书写格式参照"
+title:  "markdown jekyll 书写参照"
 date:   2018-06-27 06:01:51 +0800
 categories: format
 tags: Jekyll markdown
 description: markdown格式书写参照.
 ---
+
+本文以
+
+首行缩进
+
+&emsp;&emsp;首行缩进与空格
+
+	&ensp;或&#8194;//半角
+	&emsp;或&#8195;//全角
+	&nbsp;或&#160;//不断行的空白格
+
+&ensp;&ensp;&ensp;&ensp;这是一个段落用来测试首行缩进和不断行空白位置。&ensp;&ensp;&ensp;&ensp;这是一个段落用来测试首行缩进和不断行空白位置。半角需要使用4个下面的字符：
+
+	&ensp;或&#8194;
+
+&emsp;&emsp;这是一个段落用来测试首行缩进和不断行空白位置。&emsp;&emsp;这是一个段落用来测试首行缩进和不断行空白位置。全角需要使用下面2个字符：
+
+	&emsp;或&#8195;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个段落用来测试首行缩进和不断行空白位置。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个段落用来测试首行缩进和不断行空白位置。这个字符为普通空格需要使用下面7个字符：
+
+	&nbsp;或&#160;
+
+
+
 ## 标题展示
 
 #Jekyll
@@ -199,4 +224,3 @@ Map (C) 1998 Matthew Thomas. Freely usable if this line is included. <-
 {% endhighlight %}
 
 <br/>
-
