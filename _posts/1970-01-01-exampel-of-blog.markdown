@@ -95,11 +95,13 @@ print_hi('Tom')
 * 大片文字需要实现代码框。使用Tab或四个空格,建议空两行
 
 
+
 	def print_hi(name)
 	  puts "Hi, #{name}"
 	end
 	print_hi('Tom')
 	#=> prints 'Hi, Tom' to STDOUT.
+	
 
 
 ### 图片
