@@ -191,7 +191,7 @@ Jekyll is a simple, blog-aware, static site generator perfect for personal, proj
 	&nbsp;或&#160;
 
 
-## 特殊标记
+## 三、特殊标记
 
 ### 1.斜体
 
@@ -217,43 +217,63 @@ __粗体2__
 
 	__粗体2__
 
-### 3.使用\(\`\`\)提示性字体
+### 3.删除线
+
+要加删除线的文字左右分别用两个~~号包起来
+
+~~删除~~
+
+	~~删除~~
+
+### 4.使用\(\`\`\)提示性字体
 
 `Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
 
 	`Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
 
-### 4.其他类型举例
+### 5.其他类型举例
 
 ***粗斜体1***
 
 ___粗斜体2___
 
-__*`粗斜体+提示性(失败粗)`*__
+__*`粗斜体+提示性`*__
 
 `***粗斜体+提示性(失败粗斜)***`
 
 	***粗斜体1***
 	___粗斜体2___
-	__*`粗斜体+提示性(失败粗)`*__
+	__*`粗斜体+提示性`*__
 	`***粗斜体+提示性(失败粗斜)***`
 
-# 插入
+# 四、插入
 
 ### 命令框
 
-起始使用Tab
-
-	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
-
-
-块注释（blockquote）
-
-	通过在文字开头添加“>”表示块注释。（当>和文字之间添加五个blank时，块注释的文字会有变化。）
 
 
 
-### 代码(jekyll ruby特有)
+### 块注释（blockquote）
+
+通过在文字开头添加“>”表示块注释。（当>和文字之间添加五个blank时，块注释的文字会有变化。）
+
+>注释：这是一注释
+>>注释2
+>>>>>>>使用多个`>`
+
+使用`<blockquote>`。（`不是单引号而是左上角的ESC下面~中的`）
+
+<blockquote>
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+</blockquote>
+
+### 代码
+
+* jekyll-ruby格式（markdown不支持）
 
 {% highlight ruby %}
 def print_hi(name)
@@ -263,8 +283,25 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
+* 大片文字需要实现代码框。使用Tab和四个空格,
+
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+
+
 
 ### 图片
+
+建议使用本地图片，对于不确定的网络图片可能失效
+
+The content of this theme is distributed and licensed under a![License Badge]({{ site.baseurl }}/assets/images/cc_by_88x31.png)
+
+	The content of this theme is distributed and licensed under a![License Badge]({{ site.baseurl }}/assets/images/cc_by_88x31.png)
+
+
 ### 超链接
 
 
@@ -304,9 +341,6 @@ Jekyll is the engine behind [GitHub Pages][GitHub Pages-url], which you can use 
 
 [GitHub Pages-url]:https://pages.github.com
 
-插入一个本地图片链接
-
-The content of this theme is distributed and licensed under a![License Badge]({{ site.baseurl }}/assets/images/cc_by_88x31.png)
 
 
 
