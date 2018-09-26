@@ -271,7 +271,7 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-* 大片文字需要实现代码框。使用Tab或四个空格,建议空两行
+* 大片文字需要实现代码框。使用Tab或四个空格,建议空两行(jekyll不支持)
 
 
 	def print_hi(name)
