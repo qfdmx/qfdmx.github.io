@@ -7,6 +7,8 @@ tags: github atom
 description: windows下如何使用atom内置git连接github
 ---
 
+atom 截图 ![atom 截图]({{ site.baseurl }}\assets\post_image\2018\2018-09-25-atom-use-1.png)
+
 ### windows下atom与github使用
 
 整了好多个小时终于明白了atom如何使用，其实不用安装git既可以使用的，因为是内置的git配置好既可以使用，同时我才知道win居然支持了ssh功能，我一定是孤陋寡闻，下面开始介绍atom连接github，其中包含内置git如何使用以及发现。本文以解决windows坑爹的配置为主Linux仅部分具有参考价值，至于Linux部分更新，看心情咯
