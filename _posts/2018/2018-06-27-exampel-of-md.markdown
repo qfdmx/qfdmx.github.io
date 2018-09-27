@@ -9,9 +9,9 @@ description: markdown格式书写参照.
 
 本文以jekyll中markdown显示格式为主，jekyll对于markdwon的支持便于blog的编写，同时jekyll优先处理ruby的格式显示，然后判定markdown的基本语法，本文参考其他markdown语法总结加上实例，介绍内容如下：
 
-### 一、标题
+## 一、标题
 
-#### 1.使用“=”和“-”
+### 1.使用“=”和“-”
 
 在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。
 
@@ -27,7 +27,7 @@ Jekyll
 	Jekyll
 	------
 
-#### 2.使用“#”
+### 2.使用“#”
 
 在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）
 
@@ -94,7 +94,7 @@ Jekyll
 [Jekyll-Clean-Theme-url]: https://github.com/scotte/jekyll-clean
 [xixia-url]: http://xixia.info/
 
-#### 3.无序列表
+### 3.无序列表
 
 在文字开头添加(*, +, and -)实现无序列表。但是要注意在(*, +, and -)和文字之间需要添加空格。（建议：一个文档中只是用一种无序列表的表示方式）
 
@@ -128,7 +128,7 @@ Jekyll
 	* 无序列表下级
 	* 无序列表下级
 
-#### 4.有序列表
+### 4.有序列表
 
 使用数字后面跟上句号。（还要有空格）(数字即使错误也会自动更正)
 
@@ -137,9 +137,9 @@ Jekyll
 1. 有序列表
 
 
-### 二、正文
+## 二、正文
 
-#### 书写特点
+### 书写特点
 
 markdown正文每个段落间需要空一行，不空行表示一个段落，虽然标题和正文之间不需要空行，但是为了书写的方便建议还是使用空行，介绍如下：
 
@@ -161,7 +161,7 @@ Jekyll is a simple, blog-aware, static site generator perfect for personal, proj
 
 	Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.
 
-#### 首行缩进与空格
+### 首行缩进与空格
 
 首行缩进用空格（占字符），对于中建议使用两个全角占位符
 
@@ -184,9 +184,9 @@ Jekyll is a simple, blog-aware, static site generator perfect for personal, proj
 	&nbsp;或&#160;
 
 
-### 三、特殊标记
+## 三、特殊标记
 
-#### 1.斜体
+### 1.斜体
 
 将需要设置为斜体的文字两端使用1个"\*"或者"\_"夹起来
 
@@ -198,7 +198,7 @@ _斜体2_
 
 	_斜体2_
 
-#### 2.粗体
+### 2.粗体
 
 将需要设置为斜体的文字两端使用2个"\*"或者"\_"夹起来
 
@@ -210,7 +210,7 @@ __粗体2__
 
 	__粗体2__
 
-#### 3.删除线
+### 3.删除线
 
 要加删除线的文字左右分别用两个~~号包起来
 
@@ -218,13 +218,13 @@ __粗体2__
 
 	~~删除~~
 
-#### 4.使用\(\`\`\)提示性字体
+### 4.使用\(\`\`\)提示性字体
 
 `Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
 
 	`Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites.`
 
-#### 5.其他类型举例
+### 5.其他类型举例
 
 ***粗斜体1***
 
@@ -239,9 +239,9 @@ __*`粗斜体+提示性`*__
 	__*`粗斜体+提示性`*__
 	`***粗斜体+提示性(失败粗斜)***`
 
-### 四、插入
+## 四、插入
 
-#### 块注释（blockquote）
+### 块注释（blockquote）
 
 通过在文字开头添加“>”表示块注释。（当>和文字之间添加五个blank时，块注释的文字会有变化。）
 
@@ -259,7 +259,7 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 </blockquote>
 
-#### 代码
+### 代码
 
 * jekyll-ruby格式（markdown不支持）
 
@@ -281,7 +281,7 @@ print_hi('Tom')
 	#=> prints 'Hi, Tom' to STDOUT.
 
 
-#### 图片
+### 图片
 
 * 本地引用（仅适用于jekyll blog）
 
@@ -298,7 +298,7 @@ The content of this theme is distributed and licensed under a![License Badge]({{
 
 ![Gem Version](https://img.shields.io/gem/v/jekyll.svg)
 
-#### 超链接
+### 超链接
 
 * \[文字\]\(URL\)形式
 
@@ -316,7 +316,7 @@ Jekyll is the engine behind [GitHub Pages][GitHub Pages-url], which you can use 
 
 	[GitHub Pages-url]:https://pages.github.com
 
-#### 标签（图片赋予超链接）
+### 标签（图片赋予超链接）
 
 标签图片引用网址[shields.io](https://shields.io/#/)
 
@@ -340,11 +340,11 @@ Jekyll is the engine behind [GitHub Pages][GitHub Pages-url], which you can use 
 	[ruby-gems]: https://rubygems.org/gems/jekyll
 	[travis]: https://travis-ci.org/jekyll/jekyll
 
-#### License
+### License
 
 See the [LICENSE](https://github.com/jekyll/jekyll/blob/master/LICENSE) file.
 
-### 五、HTML语法使用
+## 五、HTML语法使用
 
 `markdown遇到HTML标签将不适用markdown语法`
 

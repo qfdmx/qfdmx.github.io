@@ -6,9 +6,9 @@ categories: boot
 tags: win linux grub
 description: kvm+smba+wiki+zentao
 ---
-### 一、网络服务配置
+## 一、网络服务配置
 
-#### 1.静态地址配置
+### 1.静态地址配置
 
 	vi  /etc/sysconfig/network-scripts/ifcfg-eno49
 	-----------------------------------------
@@ -19,57 +19,66 @@ description: kvm+smba+wiki+zentao
 	/etc/init.d/network restart
 	ifconfig
 
-#### 2.使用笔记本连接外网
+### 2.使用笔记本连接外网
 
 [参考链接](https://jingyan.baidu.com/article/0eb457e53dcc9e03f1a9058c.html)
 
 功能简述：笔记本使用无线网卡连接外网，然后将此网络通过以太网卡共享给本地服务器
-1.在无线网卡的适配器上进行网络共享
 
+1.在无线网卡的适配器上进行网络共享
 
 2.在以太网网卡上进行ip修改(共享后可能重置网络为192.168.137.1)
 
 
 3,配置服务器网关和DNS
-vi  /etc/sysconfig/network-scripts/ifcfg-eno49
------------------------------------------
-GATEWAY=192.168.25.93
-DNS1=192.168.25.93
------------------------------------------
-/etc/init.d/network restart
+
+	vi  /etc/sysconfig/network-scripts/ifcfg-eno49
+	-----------------------------------------
+	GATEWAY=192.168.25.93
+	DNS1=192.168.25.93
+	-----------------------------------------
+	/etc/init.d/network restart
 
 4.网络连接测试及维护
-ping www.baidu.com能通即可
+
+ping www.baidu.com 能通即可
 当出现不能上网情况，请卸载windows无线网卡和以太网卡，重新配置即可
 
 3.ssh连接变慢问题
-https://blog.csdn.net/qq_14821541/article/details/61915589
-关闭ssh服务DNS反馈（ssh登录速度慢的问题）
-vi/etc/ssh/sshd_config
----------------------------------
-UseDNS no
-----------------------------------
-systemctl restart sshd
 
-二、配置yum源
-1.配置本地yum源
-https://www.linuxidc.com/Linux/2017-08/146364.htm
+[参考链接](https://blog.csdn.net/qq_14821541/article/details/61915589)
+
+关闭ssh服务DNS反馈（ssh登录速度慢的问题）
+
+	vi/etc/ssh/sshd_config
+	---------------------------------
+	UseDNS no
+	----------------------------------
+	systemctl restart sshd
+
+## 二、配置yum源
+
+### 1.配置本地yum源
+[参考链接](https://www.linuxidc.com/Linux/2017-08/146364.htm)
+
 1.	加载 CentOS的ISO镜像并挂载：
+
 mkdir /media/CentOS
 mount /opt/CentOS-7-x86_64-DVD-1611.iso /media/CentOS/
 
 2. 修改yum配置文件：
-vi /etc/yum.repos.d/CentOS-Media.repo
----------------------------------------------------------------------
-[c7-media]
-name=CentOS-$releasever - Media
-baseurl=file:///media/CentOS/      -->这一行改成前边我们新建的CentOS目录
-#        file:///media/cdrom/            -->这一行加#号注释掉
-#        file:///media/cdrecorder/    -->这一行加#号注释掉
-gpgcheck=1
-enabled=1                                  -->这一行把0改成1来启用源
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-------------------------------------------------------------------------
+
+	vi /etc/yum.repos.d/CentOS-Media.repo
+	---------------------------------------------------------------------
+	[c7-media]
+	name=CentOS-$releasever - Media
+	baseurl=file:///media/CentOS/      -->这一行改成前边我们新建的CentOS目录
+	#        file:///media/cdrom/            -->这一行加#号注释掉
+	#        file:///media/cdrecorder/    -->这一行加#号注释掉
+	gpgcheck=1
+	enabled=1                                  -->这一行把0改成1来启用源
+	gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+	------------------------------------------------------------------------
 
 2.	暂时关闭mirror源，建立本地yum缓存
 mv CentOS-Base.repo CentOS-Base.repo_bk
