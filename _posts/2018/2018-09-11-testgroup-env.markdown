@@ -143,12 +143,12 @@ https://www.cnblogs.com/gy1010/p/5787137.html
 
 ### 三、网络虚拟化与kvm虚拟机安装
 
-1. 支持虚拟化配置校验
+#### 1.支持虚拟化配置校验
 
 
 	cat /proc/cpuinfo | egrep 'vmx|svm'
 
-2. 虚拟化网卡
+#### 2.虚拟化网卡
 
 功能简述：配置虚拟网卡br0桥接到当前网卡
 
@@ -211,7 +211,7 @@ https://www.cnblogs.com/gy1010/p/5787137.html
 	        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 	        device memory 0x92f00000-92ffffff
 
-3. kvm虚拟机安装
+#### 3.kvm虚拟机安装
 
 `不要使用ustc源安装高版本virt-manager有bug`
 
@@ -248,7 +248,7 @@ https://www.cnblogs.com/gy1010/p/5787137.html
 	kvm                   525259  1 kvm_intel
 	---------------------
 
-4. 图形界面安装配置虚拟机
+#### 4.图形界面安装配置虚拟机
 
 
 * 使用vnc连接登录centos7（见七远程centos7）
@@ -256,12 +256,11 @@ https://www.cnblogs.com/gy1010/p/5787137.html
 
 * 安装虚拟机
 
-
-5. 虚拟机快照
+#### 5. 虚拟机快照
 
 关于虚拟机快照，目前图形virt-manager问题，只支持关闭虚拟机情况下保存快照
 
-6. 虚拟机相关FAQ
+#### 6.虚拟机相关FAQ
 
 Q：鼠标偏移问题、键盘失灵？
 
@@ -394,6 +393,7 @@ A：
 	systemctl restart httpd
 
 ### 2.配置
+
 登录wiki进行首次配置
 http://192.168.25.250/mediawiki/
 
@@ -415,8 +415,9 @@ http://120.25.171.202:12306/zentao
 ### 六、禅道
 
 安装启动
-tar xzvf zbox_20180908.tar.gz
-/opt/zbox/zbox start
+
+	tar xzvf zbox_20180908.tar.gz
+	/opt/zbox/zbox start
 
 ### 七、centos7远程服务
 
