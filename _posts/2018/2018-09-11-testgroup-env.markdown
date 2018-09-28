@@ -145,15 +145,13 @@ https://www.cnblogs.com/gy1010/p/5787137.html
 
 #### 1.支持虚拟化配置校验
 
-
 	cat /proc/cpuinfo | egrep 'vmx|svm'
 
 #### 2.虚拟化网卡
 
 功能简述：配置虚拟网卡br0桥接到当前网卡
 
-* 添加br0网卡
-
+添加br0网卡
 
 	cp -v /etc/sysconfig/network-scripts/ifcfg-eno49 /etc/sysconfig/network-scripts/ifcfg-br0
 	vi /etc/sysconfig/network-scripts/ifcfg-br0
@@ -170,8 +168,7 @@ https://www.cnblogs.com/gy1010/p/5787137.html
 	DEFROUTE=yes
 	-----------------------------------
 
-*  编辑以太网卡
-
+编辑以太网卡
 
 	vi /etc/sysconfig/network-scripts/ifcfg-eno49
 	-----------------------------------------
@@ -185,8 +182,7 @@ https://www.cnblogs.com/gy1010/p/5787137.html
 	#HWADDR=
 	-------------------------------------
 
-* 重启网络并查看网卡
-
+重启网络并查看网卡
 
 	systemctl restart network
 	ifconfig
