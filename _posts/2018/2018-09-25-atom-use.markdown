@@ -55,7 +55,7 @@ Win+R唤出运行输入cmd，输入
 
 然后回到atom界面进行commit提交，然后在fetch中进行提交github。提交成功
 
-atom截图![2018-09-25-atom-use-1.png]({{ site.baseurl }}\assets\post_image\2018\2018-09-25-atom-use-1.png)
+atom截图[![2018-09-25-atom-use-1.png]({{ site.baseurl }}\assets\post_image\2018\2018-09-25-atom-use-1.png)](https://qfdmx.github.io/assets/post_image/2018/2018-09-25-atom-use-1.png)
 
 ### 5.关于其他
 
