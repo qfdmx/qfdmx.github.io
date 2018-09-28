@@ -3,7 +3,7 @@ layout: post
 title:  "测试环境搭建"
 date:   2018-09-11 00:00:01 +0800
 categories: boot
-tags: win linux grub
+tags: kvm smba wiki zentao
 description: kvm+smba+wiki+zentao
 ---
 ### 一、网络服务配置
