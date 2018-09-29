@@ -47,12 +47,12 @@ zennamp为nmap官方图形工具
 
 nmap默认使用协议1、协议2、协议4，如果想知道这些协议是如何判断目标主机是否存活的可以使用--packet-trance选项
 
-使用ICPM(1)、TCP（6）、UDP（17）、IGMP（2）协议向目标主机发送包平判断目标主机是否在线。
+使用ICPM(1)、TCP（6）、UDP（17）、IGMP（2）协议向目标主机发送包平判断目标主机是否在线。[协议号链接](https://qfdmx.github.io/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/2018/09/28/IP.html)
 
 	-PS						TCP SYN ping扫描
 	-PA						TCP ACK ping扫描
 
-	
+
 	-PU						UDP ping扫描
 	-PE;-PP;-PM		ICMP ping扫描
 	-n						禁止DNS反向解析

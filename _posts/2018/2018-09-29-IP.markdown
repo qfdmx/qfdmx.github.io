@@ -12,7 +12,7 @@ description: IP协议号
 IP协议号：IP首部中有8位协议号，用于指明IP的上层协议，具体如下：
 
 |协议号|协议类型|说明
-|:|||
+|-|-|-|
 |0|HOPOPT|IPv6逐跳选项|
 |1|ICMP|Internet控制消息|
 |2|IGMP|Internet组管理|
