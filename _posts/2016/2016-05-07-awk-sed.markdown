@@ -14,4 +14,6 @@ description: sed awk 常用方法
 
 `'command'部分：[地址1，地址2][函数][参数]`
 
+awk打印范围：
 
+  awk '{printf "|"$1"|"$2"|"}{for (i=3;i<=NF;i++)printf $i""}{print "|"}' txt

@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "namp速记"
+date:   2018-09-29 00:00:01 +0800
+categories: 渗透
+tags: nmap kali
+description: namp速记
+---
+### namp
+
+全面扫描
+
+	nmap -A 192.168.0.5
+
+扫描制定段
+
+	nmap 192.168.0.1-255
+
+### nmap主机发现
+
+	选项					解释
+	-sP						ping扫描
+	-P0						无ping扫描
+	-PS						TCP SYN ping扫描
+	-PA						TCP ACK ping扫描
+	-PU						UDP ping扫描
+	-PE;-PP;-PM		ICMP ping扫描
+	-n						禁止DNS反向解析
+	-R						发现解析域名
+	--system-dns	使用系统域名解析器
+	-sL						列表扫描
+	-6						扫描IPv6地址
+	-traceroute		路由跟踪
+	-PY						SCTP INIT ping扫描
+
+zennamp为nmap官方图形工具
+
+#### 命令详解参考
+
+	-P0						无ping扫描
+
+	nmap -P0 192.168.0.5	#使用默认协议1/2/4扫描
+	nmap -P0 --packet-trace 192.168.0.5		#目标主机是否存活
+	nmap -P01,6,17,2 --packet-trace 192.168.0.5
+
+无ping扫描通常用于防火墙禁止ping的情况下，他能确定正在运行的机器，这个以穿透防火墙。
+
+nmap默认使用协议1、协议2、协议4，如果想知道这些协议是如何判断目标主机是否存活的可以使用--packet-trance选项
+
+使用ICPM(1)、TCP（6）、UDP（17）、IGMP（2）协议向目标主机发送包平判断目标主机是否在线。
+
+	-PS						TCP SYN ping扫描
+	-PA						TCP ACK ping扫描
+
+	
+	-PU						UDP ping扫描
+	-PE;-PP;-PM		ICMP ping扫描
+	-n						禁止DNS反向解析
+	-R						发现解析域名
+	--system-dns	使用系统域名解析器
+	-sL						列表扫描
+	-6						扫描IPv6地址
+	-traceroute		路由跟踪
+	-PY						SCTP INIT ping扫描
