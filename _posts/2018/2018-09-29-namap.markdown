@@ -33,6 +33,10 @@ description: namp速记
 	-traceroute		路由跟踪
 	-PY						SCTP INIT ping扫描
 
+	通用参数					解释
+	-v								扫描过程打印
+	--packet-trace		判断过程中抓包情况
+
 zennamp为nmap官方图形工具
 
 #### 命令详解参考
@@ -40,7 +44,7 @@ zennamp为nmap官方图形工具
 	-P0						无ping扫描
 
 	nmap -P0 192.168.0.5	#使用默认协议1/2/4扫描
-	nmap -P0 --packet-trace 192.168.0.5		#目标主机是否存活
+	nmap -P0 --packet-trace 192.168.0.5		#判断存活过程
 	nmap -P01,6,17,2 --packet-trace 192.168.0.5
 
 无ping扫描通常用于防火墙禁止ping的情况下，他能确定正在运行的机器，这个以穿透防火墙。
