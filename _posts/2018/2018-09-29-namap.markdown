@@ -50,8 +50,18 @@ nmap默认使用协议1、协议2、协议4，如果想知道这些协议是如�
 使用ICPM(1)、TCP（6）、UDP（17）、IGMP（2）协议向目标主机发送包平判断目标主机是否在线。[协议号链接](https://qfdmx.github.io/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/2018/09/28/IP.html)
 
 	-PS						TCP SYN ping扫描
-	-PA						TCP ACK ping扫描
+	nmap -PS -v 192.168.0.5
+	nmap -PS22,80,100-255 -v 192.168.0.5		#制定端口或者端口范围扫描
 
+通常情况nmap默认使用ping扫描是使用TCP ACK和ICMP Echo请求对目标是否存活响应，当防火墙阻止这些请求时候，可以使用TCP SYN ping扫描判断主机存活
+
+特定情况下防火墙会丢弃RST包，导致扫描结果不准确，可以使用指定端口或者端口范围来避免这种情况
+
+	-PA						TCP ACK ping扫描
+	nmap -PA  -v 192.168.0.5
+	nmap -PS -PA -v 192.168.0.5
+
+很多防火墙会封锁SYN报文，所以nmap提供TCP SYN ping扫描与TCP ACK 平扫描两种探测方式。还可以同时使用-PS与-PA同时发送SYN和ACK。`当nmap发送ACK的TCP包给目标主机，如果目标主机在线则会返回一个RST包`
 
 	-PU						UDP ping扫描
 	-PE;-PP;-PM		ICMP ping扫描
