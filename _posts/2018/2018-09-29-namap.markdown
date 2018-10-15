@@ -68,7 +68,14 @@ nmap默认使用协议1、协议2、协议4，如果想知道这些协议是如�
 很多防火墙会封锁SYN报文，所以nmap提供TCP SYN ping扫描与TCP ACK 平扫描两种探测方式。还可以同时使用-PS与-PA同时发送SYN和ACK。`当nmap发送ACK的TCP包给目标主机，如果目标主机在线则会返回一个RST包`
 
 	-PU						UDP ping扫描
+	-PU -v 192.168.0.81
+
+-PU是发送一个空的UDP报文到指定端口。默认端口是40125，可以在编译时改变nmap.h文件中DEFAULT-UDP-PROBE-PORT值进行配置。会发送一个空的UDP包到目标主机，如果主机响应则返回一个ICPM短空不可达错误，如果目标不是存活状态返回各种ICMP错误信息
+
 	-PE;-PP;-PM		ICMP ping扫描
+
+
+
 	-n						禁止DNS反向解析
 	-R						发现解析域名
 	--system-dns	使用系统域名解析器
