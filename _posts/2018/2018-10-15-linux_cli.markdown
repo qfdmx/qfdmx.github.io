@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "linux命令行精选"
+date:   2018-10-15 00:00:02 +0800
+categories: linux
+tags: linux
+description: linux命令行精选
+---
+#### 将所有输出流使用管道过滤
+
+	rbapol  2>& 1  |grep Usage
+
+#### 使用循环杀死多个进程
+
+	ps -ef |grep -i drbd | awk '{print $2}'| while read line ;do  kill -9 $line ;done
+
+#### 杀死一个文件夹下所有用户(umount提示失败情况)
+
+	fuser -c /dev/pts/ 2>/dev/null | xargs kill -9
