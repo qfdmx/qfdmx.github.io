@@ -23,4 +23,8 @@ metasploitable2众所周知的账户密码为msfadmin，使用此账户密码登
 
 #### 使用nmap和msf进行评估
 
-[参考链接](https://www.cnblogs.com/yuleitest/articles/8393202.html)
+[参考链接1](https://www.cnblogs.com/yuleitest/articles/8393202.html)
+
+[参考链接2](http://www.freebuf.com/articles/system/34571.html)
+
+	msfconsole
