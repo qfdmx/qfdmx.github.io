@@ -19,6 +19,13 @@ description: kali系统自带metasploit，Nessus需要自行安装，本文以�
 	/etc/init.d/nessusd start						 				#启动Nessus
 	https://ip:8834/				  									#网页访问Nessus，注册登录更新
 
+#### Nessus Plugins首次安装失败重装
+
+	nessus Linux版本默认安装位置为/opt下面
+	cd /opt/nessus/sbin
+	./nessuscli update --all 								#首次安装失败后重装
+	./nessuscli update --plugins-only				#只更新plugins
+
 #### msfconsole search加速
 
 [参考链接](https://www.jianshu.com/p/a9037db3ed5c)
