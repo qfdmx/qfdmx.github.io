@@ -21,6 +21,7 @@ description: kali系统自带metasploit，Nessus需要自行安装，本文以�
 
 ### Nessus Plugins首次安装失败重装
 [参考链接](https://www.cnblogs.com/daynote/p/9055638.html#auto_id_7)
+
 	nessus Linux版本默认安装位置为/opt下面
 	cd /opt/nessus/sbin
 	./nessuscli update --all		#首次安装失败后重装

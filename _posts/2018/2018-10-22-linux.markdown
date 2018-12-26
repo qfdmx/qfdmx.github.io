@@ -6,12 +6,12 @@ categories: linux
 tags: linux
 description: linux 小技巧积累
 ---
-#### ssh加载过慢
+### ssh加载过慢
 
 	vi /etc/ssh/sshd_config
 	------------------------
 	UseDNS no
-#### kali或者Debian系统ssh开机启动
+### kali或者Debian系统ssh开机启动
 
 	update-rc.d ssh enable
 
