@@ -6,14 +6,6 @@ categories: boot
 tags: uefi与legacy
 description: ssh遇到问题集合
 ---
-参考链接：
-
-[UEFI和Legacy及UEFI+Legacy启动的区别](https://www.cnblogs.com/net5x/p/6850801.html)
-
-[MBR主引导记录](https://zh.wikipedia.org/wiki/%E4%B8%BB%E5%BC%95%E5%AF%BC%E8%AE%B0%E5%BD%95)
-
-[GPT全局唯一标识分区表](https://zh.wikipedia.org/wiki/GUID%E7%A3%81%E7%A2%9F%E5%88%86%E5%89%B2%E8%A1%A8)
-
 ### 一、名词解析
 
 
@@ -71,3 +63,13 @@ win8更换win7的方法的两个步骤：
 
     （1）、设置BIOS支持Legacy启动，具体目标就是设置secure boot control为Disable，兼容功能CSM选项设置为Enable，启动模式Boot Mode[UEFI/Legacy]设置为Legacy模式。
     （2）、将硬盘的分区表类型由GUID变为MBR模式。
+
+-------------------
+
+参考链接：
+
+[UEFI和Legacy及UEFI+Legacy启动的区别](https://www.cnblogs.com/net5x/p/6850801.html)
+
+[MBR主引导记录](https://zh.wikipedia.org/wiki/%E4%B8%BB%E5%BC%95%E5%AF%BC%E8%AE%B0%E5%BD%95)
+
+[GPT全局唯一标识分区表](https://zh.wikipedia.org/wiki/GUID%E7%A3%81%E7%A2%9F%E5%88%86%E5%89%B2%E8%A1%A8)
