@@ -14,7 +14,7 @@ description: ssh遇到问题集合
 
 [GPT全局唯一标识分区表](https://zh.wikipedia.org/wiki/GUID%E7%A3%81%E7%A2%9F%E5%88%86%E5%89%B2%E8%A1%A8)
 
-### 名词解析
+### 一、名词解析
 
 
     BIOS  - 硬盘分区表
@@ -39,9 +39,9 @@ Legacy BIOS：`顾名思义就是指传统的BIOS，其中UEFI BIOS包括UEFI引
 
 [![2018-12-26-uefi_legacy-1.png]({{ site.baseurl }}\assets\post_image\2018\2018-12-26-uefi_legacy-1.png)](https://qfdmx.github.io/assets/post_image/2018/2018-12-26-uefi_legacy-1.png)
 
-### BIOS配置重点项
+### 二、BIOS配置重点项
 
-1. OS Optimized Defaults系统默认优化设置
+#### 1、OS Optimized Defaults系统默认优化设置
 
 对于预装Win8的电脑中，会有这个选项，一般在Exit这个选项中的最下面OS Optimized Defaults表示的意思是：加载最优的系统设置，比如UEFI和安全启动（注意，这两个设置选项非常重要）。切换到“EXIT（退出）”选项卡，如下图的位置可以找到它：
 
@@ -49,21 +49,21 @@ Legacy BIOS：`顾名思义就是指传统的BIOS，其中UEFI BIOS包括UEFI引
 
 如果，要把win8系统更换为win7，首先需要把这个选项给禁用，即设置为：Disable。
 
-2. CSM兼容模块设置
+#### 2、CSM兼容模块设置
 
 CSM（Compatibility support Module）表示兼容模块，该选项专为兼容只能在legacy模式下工作的设备以及不支持或不能完全支持UEFI的操作系统而设置。因此，安装win7系统还需要把Launch CSM设置为Enable，表示支持Legacy引导方式。如下图所示：
 
 [![2018-12-26-uefi_legacy-3.png]({{ site.baseurl }}\assets\post_image\2018\2018-12-26-uefi_legacy-3.png)](https://qfdmx.github.io/assets/post_image/2018/2018-12-26-uefi_legacy-3.png)
 
-3. Secure Boot Control安全启动控制设置
+#### 3、Secure Boot Control安全启动控制设置
 
 对于有些主板来说，只有把Secure Boot Control即安全启动控制设置为Disable的时候才能把Launch CSM选项设置为Legacy，因此2和3的步骤对有些主板而言是不同的顺序。
 
-4. Boot Mode[UEFI/Legacy]启动模式
+#### 4、Boot Mode[UEFI/Legacy]启动模式
 
 把启动模式设置为Legacy启动模式。
 
-### BIOS设置对系统影响
+### 三、BIOS设置对系统影响
 
 从U盘启动完系统以后第一件事情就是备份数据，因为需要把硬盘的分区表格式改变一下，win8的格式是guid格式，而win7支持的MBR格式，具体的方法是系统启动后，利用电脑维护工具软件Disk Genius即可完成，改变分区表的类型会使硬盘的所有数据全部丢失，所以必须首先进行数据备份，然后进行操作。操作完之后，将下载好的系统镜像文件拷贝到系统的非C盘的某一个盘，然后利用一键安装系统的安装器进行系统安装。
 
