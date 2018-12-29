@@ -4,7 +4,7 @@ title:  "uefi与legacy"
 date:   2018-12-26 00:00:01 +0800
 categories: boot
 tags: uefi与legacy
-description: ssh遇到问题集合
+description: BIOS与启动项问题
 ---
 ### 一、名词解析
 
@@ -58,7 +58,7 @@ CSM（Compatibility support Module）表示兼容模块，该选项专为兼容�
 
 从U盘启动完系统以后第一件事情就是备份数据，因为需要把硬盘的分区表格式改变一下，win8的格式是guid格式，而win7支持的MBR格式，具体的方法是系统启动后，利用电脑维护工具软件Disk Genius即可完成，改变分区表的类型会使硬盘的所有数据全部丢失，所以必须首先进行数据备份，然后进行操作。操作完之后，将下载好的系统镜像文件拷贝到系统的非C盘的某一个盘，然后利用一键安装系统的安装器进行系统安装。
 
-### 系统使用与BIOS建议
+### 四、系统使用与BIOS建议
 
 对于使用win10及以上版本windows的直接使用UEFI+GPT，保证系统开机极快的良好体验。包括近年来的一些新更新的linux系统近期版本，像arch linux、gentoo、Ubuntu等。而且这些支持UEFI的系统在装多系统时候，不用担心系统主分区仅限制为3个的问题。
 
@@ -67,7 +67,7 @@ CSM（Compatibility support Module）表示兼容模块，该选项专为兼容�
 对于多硬盘混用现象，尤其是固态硬盘ssd和机械音频混用，最好把固态硬盘的启用放在机械硬盘后面。甚至某些时刻在安装多系统时候，需要拔掉ssd避免，分区表写在固态硬盘上，是两个硬盘都有自己的主分区引导（无论是MBR还是GPT），独立的硬盘分区引导避免一块硬盘故障引发所有系统问题。
 
 
-### 一些安装技巧
+### 五、一些安装技巧
 
 win7避免100M保留分区
 
@@ -77,6 +77,21 @@ win8更换win7的方法的两个步骤：
 
     （1）、设置BIOS支持Legacy启动，具体目标就是设置secure boot control为Disable，兼容功能CSM选项设置为Enable，启动模式Boot Mode[UEFI/Legacy]设置为Legacy模式。
     （2）、将硬盘的分区表类型由GUID变为MBR模式。
+
+### 六、grub默认启动项
+
+centos 7
+
+    #执行grub2-set-default0设置内核配置开机选单为第0项（第一个）
+    #执行grub2-editenv list确认设置成功（saved_entry=0）
+    grub2-set-default 0
+    grub2-editenv list
+
+其他linux
+
+    vi /boot/grub/grub.cfg
+    set default = 0
+
 
 -------------------
 
@@ -89,3 +104,5 @@ win8更换win7的方法的两个步骤：
 [GPT全局唯一标识分区表](https://zh.wikipedia.org/wiki/GUID%E7%A3%81%E7%A2%9F%E5%88%86%E5%89%B2%E8%A1%A8)
 
 [win7避免100M保留分区](https://jingyan.baidu.com/article/14bd256e6a1e48bb6d261221.html)
+
+[CentOS7设置GRUB系统内核开机选单](https://blog.csdn.net/csdn_duomaomao/article/details/78963761)
