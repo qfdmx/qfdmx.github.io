@@ -64,6 +64,9 @@ win8更换win7的方法的两个步骤：
     （1）、设置BIOS支持Legacy启动，具体目标就是设置secure boot control为Disable，兼容功能CSM选项设置为Enable，启动模式Boot Mode[UEFI/Legacy]设置为Legacy模式。
     （2）、将硬盘的分区表类型由GUID变为MBR模式。
 
+
+test
+
 -------------------
 
 参考链接：
