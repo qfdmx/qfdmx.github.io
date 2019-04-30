@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "linux命令行精选"
+title:  "shell绝技"
 date:   2018-10-15 00:00:02 +0800
 categories: linux
-tags: linux
+tags: linux shell
 description: linux命令行精选
 ---
 #### 将所有输出流使用管道过滤
@@ -21,6 +21,10 @@ description: linux命令行精选
 #### 循环去除最后一个换行符
 
 	awk -F: '{print $2}' app/version | awk -F '' '{for(i=1;i<NF;i++){printf $i}}'|xargs
+
+#### 将多个空格元素进行换行
+
+	./redisTool -hgetall "runindex" | sed 's/ /\n/g ' | grep -w  WARNINGNUMLOCAL|awk -F ':|]' '{print $2}'
 
 #### 打包备份程序
 
