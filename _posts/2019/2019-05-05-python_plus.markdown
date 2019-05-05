@@ -7,6 +7,8 @@ tags: python time
 description: python技巧积累
 ---
 ## 时间戳打印
+参考：https://www.v2ex.com/t/450061
+
   import time
 
   #currenttime=time.localtime() #变量只能赋值一次，函数调用会更新时间戳
