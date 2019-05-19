@@ -32,3 +32,7 @@ description: ssh遇到问题集合
 	/etc/init.d/sshd stop
 	fuser -c /dev/pts/ 2>/dev/null |xargs kill -9
 	/etc/init.d/sshd start
+
+ssh密码正确但是无法登陆
+	
+	需要重置用户登陆失败次数

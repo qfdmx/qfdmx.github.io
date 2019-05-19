@@ -47,3 +47,15 @@ description: linux命令行精选
 	echo "$shdate `md5sum $filename` 备份完成" >> version_record &&\
 	echo "$shdate 删除两周前的版本 $delfile" >> version_record
 	rm -fv $delfile
+
+#### awk
+
+NF列号 NR行号
+
+不显示指定列：
+
+awk '{ $3=""; print $0 }'   realtime.txt
+
+awk 某列求和
+
+awk 'NR>1 && NR<5{a=+ $3}END{print a}'  realtime.txt
