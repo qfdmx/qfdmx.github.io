@@ -45,18 +45,18 @@ description: awk太好用了，我不行了，我要用它灭天灭地，为此�
 
 ### 判断
 
-  awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} }
+    awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} }
 
 ### 循环
 
-  awk -F '' '{for(i=1;i<=NF;i++){print $i}}' txt
+    awk -F '' '{for(i=1;i<=NF;i++){print $i}}' txt
 
 ### 字符串
 
-  某列完全匹配某字符
-  awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} } '  test.txt
-  某列包含某字符
-  awk -F '|' '{if($4~"'$line'") print $0}' txt
+    某列完全匹配某字符
+    awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} } '  test.txt
+    某列包含某字符
+    awk -F '|' '{if($4~"'$line'") print $0}' txt
 
 ### 日常处理实例
 
