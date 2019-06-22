@@ -1,0 +1,67 @@
+---
+layout: post
+title:  "shell awk 绝杀"
+date:   2019-06-23 00:00:01 +0800
+categories: shell
+tags: awk
+description: awk太好用了，我不行了，我要用它灭天灭地，为此单独开篇awk积累的日志
+---
+## awk的GNU手册
+
+[awk手册](http://www.gnu.org/software/gawk/manual/gawk.html)
+
+### 内置参数
+
+|属性|说明|
+|-|-|
+|`$0`|当前记录（作为单个变量）|
+|`$1~$n`|当前记录的第n个字段，字段间由FS分隔|
+|FS|输入字段分隔符|
+|`NF`|`当前记录中的字段个数，就是有多少列`|
+|`NR`|`已经读出的记录数，就是行号，从1开始`|
+|BEGIN|开始|
+|END|结束|
+|RS|输入的记录他隔符默|
+|OFS|输出字段分隔符|
+|ORS|输出的记录分隔符，默认为换行符|
+|ARGC|命令行参数个数|
+|ARGV|命令行参数数组|
+|FILENAME|当前输入文件的名字|
+|IGNORECASE|如果为真，则进行忽略大小写的匹配|
+|ARGIND|当前被处理文件的ARGV标志符|
+|CONVFMT|数字转换格式|
+|ENVIRON|UNIX环境变量|
+|ERRNO|UNIX系统错误消息|
+|FIELDWIDTHS|输入字段宽度的空白分隔字符串|
+|FNR|当前记录数|
+|OFMT|数字的输出格式|
+|RSTART|被匹配函数匹配的字符串首|
+|RLENGTH|被匹配函数匹配的字符串长度|
+|SUBSEP|\034|
+
+#### 行与列
+
+#### BEGIN与END
+
+### 判断
+
+  awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} }
+
+### 循环
+
+  awk -F '' '{for(i=1;i<=NF;i++){print $i}}' txt
+
+### 字符串
+
+  某列完全匹配某字符
+  awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} } '  test.txt
+  某列包含某字符
+  awk -F '|' '{if($4~"'$line'") print $0}' txt
+
+### 日常处理实例
+
+1. 将一整行文件逐个换行
+
+2. 某列匹配某些字符，打印改行
+
+3.
