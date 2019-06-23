@@ -36,38 +36,40 @@ awk具有行与列的概念，用分隔符分列，然后按照行处理任务
 
 * 分隔符（-F）
 
+{% highlight ruby %}
+默认使用空格和tab分列，不计算个数以下三种等价
+awk '{print $1}' txt
+awk -F' ' '{print $1}' txt
+awk -F ' ' '{print $1}' txt
 
-    默认使用空格和tab分列，不计算个数以下三种等价
-    awk '{print $1}' txt
-    awk -F' ' '{print $1}' txt
-    awk -F ' ' '{print $1}' txt
+使用"|"进行分割
+awk -F'|' '{print $1}' txt
 
-
-    使用"|"进行分割
-    awk -F'|' '{print $1}' txt
-
-    使用两种或者多种字符进行分割（使用空格和&进行分割）
-    awk -F' |&' '{print $1}' txt
+使用两种或者多种字符进行分割（使用空格和&进行分割）
+awk -F' |&' '{print $1}' txt
+{% endhighlight %}
 
 * NR为行记录
 
-
-    打印小于2行以内所有内容
-    awk 'NR<=2' txt
-    打印小于2行以内分列第二列内容
-    awk 'NR<=2{print $2}' txt
-    打印2~3行以内分列第二列内容
-    awk 'NR>1 && NR<=3{print $2}' txt
+{% highlight ruby %}
+打印小于2行以内所有内容
+awk 'NR<=2' txt
+打印小于2行以内分列第二列内容
+awk 'NR<=2{print $2}' txt
+打印2~3行以内分列第二列内容
+awk 'NR>1 && NR<=3{print $2}' txt
+{% endhighlight %}
 
 * NF为列记录
 
-
-    打印2,3,NF(尾列)并用|分割
-    awk -F'|' '{print $2"|"$3"|"$NF}' txt
-    `第三列为空其他列正常打印`
-    awk '{ $3=""; print $0 }' txt
-    打印内容引用shell变量$line
-    awk -F'|' '{print $2'$line'$NF}' txx
+{% highlight ruby %}
+打印2,3,NF(尾列)并用|分割
+awk -F'|' '{print $2"|"$3"|"$NF}' txt
+`第三列为空其他列正常打印`
+awk '{ $3=""; print $0 }' txt
+打印内容引用shell变量$line
+awk -F'|' '{print $2'$line'$NF}' txx
+{% endhighlight %}
 
 ### 2.BEGIN与END
 
@@ -92,10 +94,12 @@ awk具有行与列的概念，用分隔符分列，然后按照行处理任务
 
 ## 字符串
 
-    某列完全匹配某字符
-    awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} } '  test.txt
-    某列包含某字符
-    awk -F '|' '{if($4~"'$line'") print $0}' txt
+{% highlight ruby %}
+某列完全匹配某字符
+awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} } '  test.txt
+某列包含某字符
+awk -F '|' '{if($4~"'$line'") print $0}' txt
+{% endhighlight %}
 
 &nbsp;
 
@@ -103,33 +107,39 @@ awk具有行与列的概念，用分隔符分列，然后按照行处理任务
 
 1. 将一整行文件按照字符逐个换行
 
-
-    awk -F'|' '{print $4}' txt | xargs | sed 's/ //g' |awk -F '' '{for(i=1;i<=NF;i++){print $i}}'
+{% highlight ruby %}
+awk -F'|' '{print $4}' txt | xargs | sed 's/ //g' |awk -F '' '{for(i=1;i<=NF;i++){print $i}}'
+{% endhighlight %}
 
 2. 日本汉字进行去重后，逐字匹配所有文本包含行
 
-
-    生成整行文字并进行换行去重
-    awk -F'|' '{print $4}' txt | xargs | sed 's/ //g' |awk -F '' '{for(i=1;i<=NF;i++){print $i}}' |sort |uniq  > t
-    将筛选的文字进行匹配
-    while read line;do echo "=== $line ===="; awk -F '|' '{if($4~"'$line'") print $0}' txt   ;done < t > list
+{% highlight ruby %}
+生成整行文字并进行换行去重
+awk -F'|' '{print $4}' txt | xargs | sed 's/ //g' |awk -F '' '{for(i=1;i<=NF;i++){print $i}}' |sort |uniq  > t
+将筛选的文字进行匹配
+while read line;do echo "=== $line ===="; awk -F '|' '{if($4~"'$line'") print $0}' txt   ;done < t > list
+{% endhighlight %}
 
 3. 将第一行文字按照2列一行，进行换行
 
-
-    awk  'NR==1{for(i=1;i<NF;i++)if(i%2==0){print $i}else{printf $i" "}}' 3.txt
+{% highlight ruby %}
+awk  'NR==1{for(i=1;i<NF;i++)if(i%2==0){print $i}else{printf $i" "}}' 3.txt
+{% endhighlight %}
 
 4. txt中第4列匹配到13这个字符，将该行该列内容替换为6666666
 
-
-    awk '{if($6~13){ $6="6666666"; print $0 }else{print $0}}' 3.txt
+{% highlight ruby %}
+awk '{if($6~13){ $6="6666666"; print $0 }else{print $0}}' 3.txt
+{% endhighlight %}
 
 5. txt文件隔行进行时间分钟计算
 
-
-    awk 'NR>1{for(i=1;i<=NF;i++){if(i==4 || i==6){print $i}}}' txt | awk -F':' '{a=$1*60+$2;print a}' |awk 'NR>1{if(NR%2==0){s=$1}else{e=$1-s;toal+=e}}END{print toal}'
+{% highlight ruby %}
+awk 'NR>1{for(i=1;i<=NF;i++){if(i==4 || i==6){print $i}}}' txt | awk -F':' '{a=$1*60+$2;print a}' |awk 'NR>1{if(NR%2==0){s=$1}else{e=$1-s;toal+=e}}END{print toal}'
+{% endhighlight %}
 
 6. 将第1列第2列和之后内容作为第三列并用|分割打印
 
-
-    awk '{printf "|"$1"|"$2"|"}{for (i=3;i<=NF;i++)printf $i" "}{print "|"}' txt
+{% highlight ruby %}
+awk '{printf "|"$1"|"$2"|"}{for (i=3;i<=NF;i++)printf $i" "}{print "|"}' txt
+{% endhighlight %}
