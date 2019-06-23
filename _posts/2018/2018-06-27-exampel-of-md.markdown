@@ -215,10 +215,13 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-		{% highlight ruby %}
-		代码内容
-		#代码注释
-		{% endhighlight %}
+	\{% highlight ruby %\}
+	def print_hi(name)
+	puts "Hi, #{name}"
+	end
+	print_hi('Tom')
+	#=> prints 'Hi, Tom' to STDOUT.
+	\{% endhighlight %\}
 
 &nbsp;
 
