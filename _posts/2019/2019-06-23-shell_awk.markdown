@@ -19,7 +19,7 @@ description: awk太好用了，我不行了，我要用它灭天灭地，为此�
 
 &nbsp;
 
-## 一、内置参数
+### 内置参数
 
 |属性|说明|
 |:-:|:-:|
@@ -30,7 +30,7 @@ description: awk太好用了，我不行了，我要用它灭天灭地，为此�
 |BEGIN|开始|
 |END|结束|
 
-### 1.行与列
+#### 行与列
 
 awk具有行与列的概念，用分隔符分列，然后按照行处理任务
 
@@ -71,7 +71,7 @@ awk '{ $3=""; print $0 }' txt
 awk -F'|' '{print $2'$line'$NF}' txx
 {% endhighlight %}
 
-### 2.BEGIN与END
+#### BEGIN与END
 
 {% highlight ruby %}
 #统计登录shell为bash的用户
@@ -82,7 +82,7 @@ awk -F: 'BEGIN{i=0}{if($3<500){i++}}END{print i}' /etc/passwd
 
 &nbsp;
 
-## 二、判断
+### 判断
 
 {% highlight ruby %}
 awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} } txt
@@ -90,7 +90,7 @@ awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} } txt
 
 &nbsp;
 
-## 三、循环
+### 循环
 
 {% highlight ruby %}
 awk -F '' '{for(i=1;i<=NF;i++){print $i}}' txt
@@ -98,7 +98,7 @@ awk -F '' '{for(i=1;i<=NF;i++){print $i}}' txt
 
 &nbsp;
 
-## 四、字符串
+### 字符串
 
 {% highlight ruby %}
 #某列完全匹配某字符
@@ -109,15 +109,15 @@ awk -F '|' '{if($4~"'$line'") print $0}' txt
 
 &nbsp;
 
-## 五、日常处理实例
+### 日常处理实例
 
-### 1.将一整行文件按照字符逐个换行
+* 将一整行文件按照字符逐个换行
 
 {% highlight ruby %}
 awk -F'|' '{print $4}' txt | xargs | sed 's/ //g' |awk -F '' '{for(i=1;i<=NF;i++){print $i}}'
 {% endhighlight %}
 
-### 2.日本汉字进行去重后，逐字匹配所有文本包含行
+* 日本汉字进行去重后，逐字匹配所有文本包含行
 
 {% highlight ruby %}
 #生成整行文字并进行换行去重
@@ -126,31 +126,31 @@ awk -F'|' '{print $4}' txt | xargs | sed 's/ //g' |awk -F '' '{for(i=1;i<=NF;i++
 while read line;do echo "=== $line ===="; awk -F '|' '{if($4~"'$line'") print $0}' txt   ;done < t > list
 {% endhighlight %}
 
-### 3.将第一行文字按照2列一行，进行换行
+* 将第一行文字按照2列一行，进行换行
 
 {% highlight ruby %}
 awk  'NR==1{for(i=1;i<NF;i++)if(i%2==0){print $i}else{printf $i" "}}' txt
 {% endhighlight %}
 
-### 4.txt中第4列匹配到13这个字符，将该行该列内容替换为6666666
+* txt中第4列匹配到13这个字符，将该行该列内容替换为6666666
 
 {% highlight ruby %}
 awk '{if($6~13){ $6="6666666"; print $0 }else{print $0}}' txt
 {% endhighlight %}
 
-### 5.txt文件隔行进行时间分钟计算
+* txt文件隔行进行时间分钟计算
 
 {% highlight ruby %}
 awk 'NR>1{for(i=1;i<=NF;i++){if(i==4 || i==6){print $i}}}' txt | awk -F':' '{a=$1*60+$2;print a}' |awk 'NR>1{if(NR%2==0){s=$1}else{e=$1-s;toal+=e}}END{print toal}'
 {% endhighlight %}
 
-### 6.将第1列第2列和之后内容作为第三列并用|分割打印
+* 将第1列第2列和之后内容作为第三列并用|分割打印
 
 {% highlight ruby %}
 awk '{printf "|"$1"|"$2"|"}{for (i=3;i<=NF;i++)printf $i" "}{print "|"}' txt
 {% endhighlight %}
 
-### 7.awk某列求和
+* awk某列求和
 
 {% highlight ruby %}
 awk 'NR>1 && NR<5{a=+ $3}END{print a}'  realtime.txt
