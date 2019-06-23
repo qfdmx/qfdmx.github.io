@@ -101,9 +101,9 @@ awk -F '' '{for(i=1;i<=NF;i++){print $i}}' txt
 ## 四、字符串
 
 {% highlight ruby %}
-某列完全匹配某字符
+#某列完全匹配某字符
 awk  -F","  '{ if($4=="江苏"){print $1} else {print  $0} } '  test.txt
-某列包含某字符
+#某列包含某字符
 awk -F '|' '{if($4~"'$line'") print $0}' txt
 {% endhighlight %}
 
