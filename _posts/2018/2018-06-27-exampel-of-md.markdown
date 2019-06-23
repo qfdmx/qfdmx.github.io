@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "markdown jekyll 书写参照2"
+title:  "markdown jekyll 书写参照"
 date:   2018-06-27 06:01:52 +0800
 categories: gitHub
 tags: Jekyll markdown
@@ -215,11 +215,9 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
->{% highlight ruby %}
+	\{\% highlight ruby \%\}
+	\{\% endhighlight \%\}
 
->内容
-
->{% endhighlight %}
 &nbsp;
 
 ## 五、表格

@@ -130,11 +130,8 @@ description: 之前一版的格式推荐很凌乱，重置一版用于推荐书�
 * jekyll-ruby格式（markdown不支持）
 
 
->{% highlight ruby %}
-
->内容
-
->{% endhighlight %}
+	\{\% highlight ruby \%\}
+	\{\% endhighlight \%\}
 
 &nbsp;
 
