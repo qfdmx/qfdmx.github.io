@@ -2,8 +2,8 @@
 layout: post
 title:  "启动项问题"
 date:   2018-09-27 00:00:01 +0800
-categories: boot
-tags: win linux grub
+categories: system
+tags: windows linux grub boot
 description: 固态硬盘+机械硬盘多windows和linux系统混合启动项问题
 ---
 

@@ -2,9 +2,9 @@
 layout: post
 title:  "kali linux初识"
 date:   2018-06-30 02:44:41  +0800
-categories: 渗透
+categories: 安全测试 system
 tags: kali
-description: 
+description:
 ---
 ### kali linux由来
 
@@ -30,7 +30,7 @@ kali linux为渗透工具合集，不适合linux初学者使用，部分工具�
 
 	vi /etc/network/interfaces
 
-{% highlight ruby %}	
+{% highlight ruby %}
 #allow-hotplug eth0
 auto eth0
 iface eth0 inet static
@@ -54,4 +54,3 @@ iface eth0 inet static
 nameserver 221.130.33.52
 nameserver 182.18.99.6
 {% endhighlight %}
-

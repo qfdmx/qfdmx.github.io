@@ -2,8 +2,8 @@
 layout: post
 title:  "markdown jekyll 书写速查"
 date:   2018-06-27 09:01:51 +0800
-categories: gitHub
-tags: Jekyll markdown
+categories: blog
+tags: jekyll markdown
 description: 之前一版的格式推荐很凌乱，重置一版用于推荐书写格式，发现了不进行统一格式.博客浏览起来和凌乱。一年又一年的github博客修炼又开始了。（2019-06-23更新）
 ---
 

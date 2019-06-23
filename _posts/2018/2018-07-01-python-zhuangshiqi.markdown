@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "装饰器"
+title:  "python3装饰器"
 date:   2018-07-01 16:02:45  +0800
-categories: python3
-tags: decorator
+categories: program
+tags: python decorator
 description: 装饰器初识
 ---
 ### 装饰器
@@ -69,8 +69,8 @@ def test1():
     print("in the test1")
 
 def timer(func):	#func=test1
-    func()		#test1() 
-    return func 
+    func()		#test1()
+    return func
 
 timer(test1)		#传递内存地址test1
 print(timer)		#打印内存地址
@@ -201,4 +201,4 @@ def bbs():
 index()
 print(home())
 bbs()
-{% endhighlight %} 
+{% endhighlight %}

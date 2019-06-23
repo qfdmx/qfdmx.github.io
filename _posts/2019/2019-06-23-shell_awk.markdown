@@ -2,8 +2,8 @@
 layout: post
 title:  "shell awk 绝杀"
 date:   2019-06-23 00:00:01 +0800
-categories: shell
-tags: awk
+categories: program
+tags: shell awk
 description: awk太好用了，我不行了，我要用它灭天灭地，为此单独开篇awk积累的日志
 ---
 ##### awk详细内容请参考[awk手册](http://www.gnu.org/software/gawk/manual/gawk.html)
@@ -148,4 +148,10 @@ awk 'NR>1{for(i=1;i<=NF;i++){if(i==4 || i==6){print $i}}}' txt | awk -F':' '{a=$
 
 {% highlight ruby %}
 awk '{printf "|"$1"|"$2"|"}{for (i=3;i<=NF;i++)printf $i" "}{print "|"}' txt
+{% endhighlight %}
+
+### 7.awk某列求和
+
+{% highlight ruby %}
+awk 'NR>1 && NR<5{a=+ $3}END{print a}'  realtime.txt
 {% endhighlight %}

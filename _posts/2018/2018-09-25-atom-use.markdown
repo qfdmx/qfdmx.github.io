@@ -3,7 +3,7 @@ layout: post
 title:  "win10下atom使用内置git连接github"
 date:   2018-09-25 21:59:33  +0800
 categories: git
-tags: github atom
+tags: github soft windows
 description: windows下如何使用atom内置git连接github
 ---
 ### windows下atom与github使用

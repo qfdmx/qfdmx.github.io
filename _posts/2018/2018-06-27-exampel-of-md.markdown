@@ -2,8 +2,8 @@
 layout: post
 title:  "markdown jekyll 书写参照"
 date:   2018-06-27 06:01:52 +0800
-categories: gitHub
-tags: Jekyll markdown
+categories: blog
+tags: jekyll markdown
 description: markdown格式书写参照.
 ---
 
