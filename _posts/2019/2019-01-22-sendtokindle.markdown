@@ -6,13 +6,13 @@ categories: 瞎折腾
 tags: kindle
 description: sendtokindle不完全靠谱指南
 ---
-## sendtokindle不完全靠谱指南
+### sendtokindle不完全靠谱指南
 
 ##### &emsp;&emsp;本文用于将内容发送到kindle上，kindle真是对眼睛有点好处，而且可以沉浸阅读。kindle平时建议使用飞行模式省电，最好不要开启商店，看也看不清，可以买完了推送。此外，kindle除了使用在商店购买的书籍，也可以进行导入。
 
 &nbsp;
 
-## USB直连
+### USB直连
 
 &emsp;&emsp;直接连线在windows上就能看见，在document，放文件就不做介绍，主要支持文本如下：
 
@@ -20,7 +20,7 @@ description: sendtokindle不完全靠谱指南
 
 &nbsp;
 
-## 邮件推送
+### 邮件推送
 
 &emsp;&emsp;kindle还支持一中邮箱附件推送的形式，就是给你的kindle分配一个邮箱，并支持配置多个可信任的邮箱，此邮箱将文件作为附件发送到kindle邮箱，可以联网推送到kindle上，支持附件类型如下：
 
@@ -37,23 +37,21 @@ description: sendtokindle不完全靠谱指南
 *  微信内容或者图片（使用亚马逊公众号推送）
 *  文件推送（使用官方sendtokindle，使用ifttt通过网盘推送）
 
-### 2.1web推送
+#### 推送
 
+#### 微信内容或者图片
 
-
-### 2.2微信内容或者图片
-
-### 2.3文件推送
+#### 文件推送
 
 &nbsp;
 
-## 官方软件(sendtokinle)推送
+### 官方软件(sendtokinle)推送
 
 &emsp;&emsp;到官网上下载sendtokinle软件，`但是该软件只支持美国亚马逊账号绑定kindle`，这样国内的亚马逊无法购买书籍，对于一部分人来说很不方便，所以建议使用ifttt方式解决
 
 &nbsp;
 
-## ifttt的applets推送
+### ifttt的applets推送
 
 &emsp;&emsp;ifttt的功能简单说就是，可以通过一个应用或者动作触发另一个应用自动进行后面的操作。比如现在，可以在网盘指定的文件夹内上传一个文件，触发gmail服务去将文件发送到kindle邮箱。（经常使用ifttt让它当我在tumblr或者ins上点缀然后将文件存到网盘或者推送到ipad图库上）
 
