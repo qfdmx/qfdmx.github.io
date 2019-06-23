@@ -144,7 +144,7 @@ awk '{if($6~13){ $6="6666666"; print $0 }else{print $0}}' txt
 awk 'NR>1{for(i=1;i<=NF;i++){if(i==4 || i==6){print $i}}}' txt | awk -F':' '{a=$1*60+$2;print a}' |awk 'NR>1{if(NR%2==0){s=$1}else{e=$1-s;toal+=e}}END{print toal}'
 {% endhighlight %}
 
-* 将第1列第2列和之后内容作为第三列并用|分割打印
+* 将第1列第2列和之后内容作为第三列并用\|分割打印
 
 {% highlight ruby %}
 awk '{printf "|"$1"|"$2"|"}{for (i=3;i<=NF;i++)printf $i" "}{print "|"}' txt
