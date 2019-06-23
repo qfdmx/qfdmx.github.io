@@ -7,10 +7,10 @@ tags: Jekyll markdown
 description: markdown格式书写参照.
 ---
 
->###### 本文以jekyll中markdown显示格式为主，jekyll对于markdwon的支持便于blog的编写，同时jekyll优先处理ruby的格式显示，然后判定markdown的基本语法，本文参考其他markdown语法总结加上实例，介绍内容如下：
+###### 本文以jekyll中markdown显示格式为主，jekyll对于markdwon的支持便于blog的编写，同时jekyll优先处理ruby的格式显示，然后判定markdown的基本语法，本文参考其他markdown语法总结加上实例，介绍内容如下：
 
 	使用">"添加注释
-	使用">###### "添加注释控制字体大小
+	使用"###### "添加注释控制字体大小
 
 ## 一、post标签
 
@@ -215,14 +215,11 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-	\{% highlight ruby %\}
-	def print_hi(name)
-	puts "Hi, #{name}"
-	end
-	print_hi('Tom')
-	#=> prints 'Hi, Tom' to STDOUT.
-	\{% endhighlight %\}
+>{% highlight ruby %}
 
+>内容
+
+>{% endhighlight %}
 &nbsp;
 
 ## 五、表格
