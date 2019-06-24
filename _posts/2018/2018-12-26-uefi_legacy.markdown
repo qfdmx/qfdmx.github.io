@@ -2,8 +2,8 @@
 layout: post
 title:  "uefi与legacy"
 date:   2018-12-26 00:00:01 +0800
-categories: boot
-tags: uefi与legacy
+categories: system
+tags: BIOS
 description: BIOS与启动项问题
 ---
 ### 一、名词解析

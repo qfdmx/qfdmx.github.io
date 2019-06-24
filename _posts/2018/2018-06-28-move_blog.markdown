@@ -3,7 +3,7 @@ layout: post
 title:  "Jekyll blog迁移"
 date:   2018-06-28 22:32:45  +0800
 categories: blog
-tags: Jekyll
+tags: jekyll github
 description: 搭建一个简易博客之后进行升级操作,一波坑爹的操作.
 ---
 `上一波神奇的github初始，搭建的简易blog并不令我满意，这次的博客模板基本符合使用要求，着手干了一周的迁移工作，记录一下`
@@ -42,7 +42,7 @@ gem sources -r XXXXXX
 gem sources -a https://gems.ruby-china.com/
 
 #===>安装Jekyll
-gem install jekyll -V 
+gem install jekyll -V
 gem install bundle -V
 
 {% endhighlight %}
@@ -54,7 +54,7 @@ gem install bundle -V
 	unzip jekyll-xixia-gh-pages.zip
 
 启动模板（建议先关闭centos防火墙）
-	
+
 	/etc/init.d/iptables stop
 	jekyll server --baseurl=/jekyll/xixia -w --host=192.168.0.5
 
@@ -66,7 +66,7 @@ gem install bundle -V
 再次执行启动模板命令既可
 
 ### 4.文档迁移
-	
+
 将已经的\_posts文件迁移到新的\_posts既可
 
 ### 5.github提交
@@ -81,6 +81,6 @@ gem install bundle -V
 
 	git add --all
 	git commit -m "move my blog"
-	git push -u origin master 
+	git push -u origin master
 
 提交完成后，等待几分钟便会刷新，登录XXXX.github.io可以查看blog

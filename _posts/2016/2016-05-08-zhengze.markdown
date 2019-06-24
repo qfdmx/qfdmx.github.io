@@ -2,8 +2,8 @@
 layout: post
 title:  "正则表达式学习"
 date:   2016-05-08 12:00:00 +0800
-categories: format
-tags: 正则 sed&awk
+categories: program
+tags: 正则
 description: 正则表达式用法
 ---
 
@@ -18,7 +18,7 @@ description: 正则表达式用法
 5.	^	匹配字符串的开始
 6.	$	匹配字符串结束
 
-eg： 
+eg：
 
 \bhi\b  
 
@@ -51,7 +51,7 @@ eg.
 
 [.?!]
 
-[aeiou]	
+[aeiou]
 
 [a-z0-9A-Z]
 

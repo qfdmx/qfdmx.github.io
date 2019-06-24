@@ -2,8 +2,8 @@
 layout: post
 title:  "shell绝技"
 date:   2018-10-15 00:00:02 +0800
-categories: linux
-tags: linux shell
+categories: program
+tags: shell
 description: linux命令行精选
 ---
 #### 将所有输出流使用管道过滤

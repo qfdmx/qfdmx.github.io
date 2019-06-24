@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "git+jekyll搭建一个免费的简易博客"
+title:  "github+jekyll搭建一个免费的简易博客"
 date:   2016-05-02 10:15:42 +0800
-categories:  
-tags: Jekyll
+categories:  blog
+tags: jekyll github
 description: The read me page of Jekyll.
 ---
 `概要介绍`：
@@ -79,4 +79,3 @@ git push origin master
 #git push origin master --force
 #登录http://username.github.io访问博客，可能需要缓冲
 {% endhighlight %}
-

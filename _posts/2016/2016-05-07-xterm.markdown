@@ -2,7 +2,7 @@
 layout: post
 title:  "xterm配置"
 date:   2016-05-07 00:15:42 +0800
-categories: software
+categories: soft
 tags: xterm
 description: xterm 配置
 ---
@@ -18,7 +18,7 @@ description: xterm 配置
 XTerm*VT100.Translations: #override \
 Ctrl <KeyPress> V: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
 <Btn3Down>: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
-<BtnUp>: select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0) 
+<BtnUp>: select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0)
 {% endhighlight %}
 
 解释如下：
@@ -31,4 +31,3 @@ Ctrl <KeyPress> V: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
 `<Btn3Down>`中Btn是button，123分别指的是左键中间（滚轮？）和右键，`up``down`指的是动作，
 `insert-selection`输入选项，`select-end`选中到结尾。这样基本就知道写的是什么了，
 然后调整一下快捷键就能达到自己想要的水平，其实Xtrem和其他窗口的交互复制粘贴是剪贴板的作用。
-

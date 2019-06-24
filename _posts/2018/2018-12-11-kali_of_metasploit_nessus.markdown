@@ -2,8 +2,8 @@
 layout: post
 title:  "kali系统中metasploi配置与Nessus配置"
 date:   2018-12-11 00:00:02 +0800
-categories: kali
-tags: 渗透测试 metasploitable kali Nessus
+categories: 安全测试
+tags: metasploitable kali Nessus
 description: kali系统自带metasploit，Nessus需要自行安装，本文以更新维护metasploit和Nessus为主，工欲善其事必先利其器。
 ---
 ### 简介

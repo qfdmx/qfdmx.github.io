@@ -2,8 +2,8 @@
 layout: post
 title:  "ssh报错"
 date:   2018-10-15 00:00:01 +0800
-categories: linux
-tags: ssh errors
+categories: system
+tags: linux soft
 description: ssh遇到问题集合
 ---
 ### ssh问题记录
@@ -32,3 +32,7 @@ description: ssh遇到问题集合
 	/etc/init.d/sshd stop
 	fuser -c /dev/pts/ 2>/dev/null |xargs kill -9
 	/etc/init.d/sshd start
+
+ssh密码正确但是无法登陆
+
+	需要重置用户登陆失败次数

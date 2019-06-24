@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "生成器与迭代器"
+title:  "python3生成器与迭代器"
 date:   2018-07-04 21:59:33  +0800
-categories: python3
-tags: generator iterator
-description: 
+categories: program
+tags: python generator iterator
+description:
 ---
 ### 列表生成器
 
@@ -19,7 +19,7 @@ for i in range(10):
 	a.append(i*2)
 {% endhighlight %}
 
-#生成器 
+#生成器
 
 * 只有在电泳是才会生成相应的数据
 * 只记录当前位置
