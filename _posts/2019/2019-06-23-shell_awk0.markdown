@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "美国、日本账户注册地址与其他"
+date:   2019-06-24 12:00:01 +0800
+categories: 瞎折腾
+tags: account
+description: 用于注册地址和邮编记录
+---
+##### 账户注册一般都会要求填写地址和邮编，最近注册了gmail，用于日本区的Apple id、google play、亚马逊。地址还是挺让人头疼的一件事
+
+### 日本地址和邮编
+
+日本区地址推荐使用[郵便番号検索](https://www.post.japanpost.jp/zipcode/)，一般比较偷懒的会选择[北海道、赤平县](https://www.post.japanpost.jp/cgi-zip/zipcode.php?pref=1&city=1012180&id=2921)。地址及邮编如下：
+
+
+    〒 079-1143
+    北海道
+    赤平市
+    赤平
+    アカビラ
+
+### 美国地址和邮编
+
+以下推荐一个免税州可用地址
+
+    俄勒冈州：
+    129 Northwest Idaho Avenue
+    Des Chutes Historical Center
+    Bend OR 97701
+    541 3891813
+
+### 全球其他地图地址与邮编
+
+[NowMsg.com](https://www.nowmsg.com/findzip/findzip.asp)

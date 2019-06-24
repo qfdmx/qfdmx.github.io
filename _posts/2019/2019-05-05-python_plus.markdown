@@ -6,14 +6,7 @@ categories: program
 tags: python time database
 description: python技巧积累，散装python技能
 ---
-<<<<<<< HEAD
-## 时间戳打印
-参考：https://www.v2ex.com/t/450061
-
-  import time
-=======
 ##### 经常有些知识是散的，聚在一起也就多了
->>>>>>> b3986117995e4cef430367c97ea0d0a93aebd116
 
 ### 1.时间戳打印
 
@@ -36,6 +29,36 @@ while 1:
 
 &emsp;&emsp;很多国内的数据库（对，垃圾的金仓和dm）对于ODBC支持并不友好，但是绝大多数都是支持JDBC连接数据库。所以python使用JDBC进行通用数据库连接调试是相当必要的。
 
+&emsp;&emsp;python中的JayDeBeApi模块(A bridge from JDBC database drivers to Python DB-API.)目前已通过测试的数据库包括 HSQLDB 和 DB2。建议联网状态下使用pip安装该版本，同时当前时间20190624建议python3版本在3.6.4
+
+    pip install JayDeBeApi
+
+然后将JDBC.jar放在指定位置，使用如下代码进行调试。
+
 {% highlight ruby %}
-#未完待续
+#!/home/p2000/test//Python3/bin/python3
+
+import jaydebeapi
+
+#dm数据库配置，金仓需要使用金仓的jdbc文件
+user='我是账户'
+password='我是密码'
+
+#dm
+url='jdbc:dm://192.168.25.117/PSGSM2000V2'
+dirver='dm.jdbc.driver.DmDriver'
+jarFile='/home/p2000/test/Python3/jdbc/DmJdbcDriver.jar'
+
+sqlStr='select * from CONF_BROKER'
+
+#连接语句,连接测试单句
+#conn=jaydebeapi.connect('dm.jdbc.driver.DmDriver','jdbc:dm://192.168.25.161/PSGSM2000V2',['PSGSM2000V2','psgsm2000v2kd'],'/home/p2000/test/install_sendKafka/DmJdbcDriver.jar')
+conn=jaydebeapi.connect(dirver,url,[user,password],jarFile)
+
+curs = conn.cursor()
+curs.execute(sqlStr)
+result=curs.fetchall()
+print(result)
+curs.close()
+conn.close()
 {% endhighlight %}
