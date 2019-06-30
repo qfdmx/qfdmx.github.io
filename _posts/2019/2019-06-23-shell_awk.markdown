@@ -109,6 +109,23 @@ awk -F '|' '{if($4~"'$line'") print $0}' txt
 
 &nbsp;
 
+### awk转义
+
+当遇见\'时候，awk需要转义
+
+    awk -F "\'" '{for(i=2;i<=NF;i++) printf $i;print "" }' pdwg
+
+但是将该结果输出到文件会报错
+
+    awk -F "\'" '{for(i=2;i<=NF;i++) printf $i;print "" }' pdwg > pdwg1
+    awk: warning: escape sequence `\'' treated as plain `''
+
+建议使用sed将\'转换后使用awk，否则本身是存在和shell的解析冲突
+
+    s#'\''##g' pdwg > pdwg1
+
+------------------------
+
 ### 日常处理实例
 
 * 将一整行文件按照字符逐个换行
