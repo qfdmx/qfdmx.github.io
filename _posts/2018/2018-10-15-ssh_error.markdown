@@ -8,16 +8,17 @@ description: ssh遇到问题集合
 ---
 ### scp报错 lost connection
 
-		/usr/bin/ssh: /home/p2000/secdetection/lib/libcrypto.so.1.0.0: no version information available (required by /usr/bin/ssh)
-		/usr/bin/ssh: /home/p2000/secdetection/lib/libcrypto.so.1.0.0: no version information available (required by /usr/bin/ssh)
-		/usr/bin/ssh: relocation error: /usr/bin/ssh: symbol EVP_aes_128_ctr, version OPENSSL_1.0.1 not defined in file libcrypto.so.1.0.0 with link time reference
-		lost connection
-		或者
-		/usr/bin/ssh: symbol lookup error: /usr/bin/ssh: undefined symbol: ECDH_compute_key
-		lost connection
+	/usr/bin/ssh: /home/p2000/secdetection/lib/libcrypto.so.1.0.0: no version information available (required by /usr/bin/ssh)
+	/usr/bin/ssh: /home/p2000/secdetection/lib/libcrypto.so.1.0.0: no version information available (required by /usr/bin/ssh)
+	/usr/bin/ssh: relocation error: /usr/bin/ssh: symbol EVP_aes_128_ctr, version OPENSSL_1.0.1 not defined in file libcrypto.so.1.0.0 with link time reference
+	lost connection
+	或者
+	/usr/bin/ssh: symbol lookup error: /usr/bin/ssh: undefined symbol: ECDH_compute_key
+	lost connection
 
-		临时方法（刷新lib库位置）：
-		unset LD_LIBRARY_PATH
+
+	临时方法（刷新lib库位置）：
+	unset LD_LIBRARY_PATH
 
 本质是lib库配置配置问题，根本解决需要重新配置LD_LIBRARY_PATH变量
 
