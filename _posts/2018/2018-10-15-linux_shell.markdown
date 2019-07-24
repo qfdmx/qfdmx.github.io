@@ -47,3 +47,17 @@ description: linux命令行精选
 	echo "$shdate `md5sum $filename` 备份完成" >> version_record &&\
 	echo "$shdate 删除两周前的版本 $delfile" >> version_record
 	rm -fv $delfile
+
+#### tar命令排除目录打包
+
+	所有排除文件操作不要在后面加/
+	排除log及其子文件和目录
+	tar czvf elasticsearch-odbc.tar.gz --exclude=elasticsearch-odbc/log elasticsearch-odbc/
+	排除log下子文件和目录
+	tar czvf elasticsearch-odbc.tar.gz --exclude=elasticsearch-odbc/log/* elasticsearch-odbc/
+
+#### top
+
+	-c 显示具体文件路径
+	-b 批量刷新
+	-nX 循环刷新X次
