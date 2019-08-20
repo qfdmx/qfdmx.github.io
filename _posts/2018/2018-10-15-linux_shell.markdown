@@ -26,6 +26,10 @@ description: linux命令行精选
 
 	./redisTool -hgetall "runindex" | sed 's/ /\n/g ' | grep -w  WARNINGNUMLOCAL|awk -F ':|]' '{print $2}'
 
+#### 计算一个列表文件的md5值并写入txt
+
+	while read list ;do md5sum $list;done<extra/md5list >> extra/md5.txt
+
 #### 打包备份程序
 
 	crontab -l
