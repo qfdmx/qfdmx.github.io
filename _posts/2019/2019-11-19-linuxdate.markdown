@@ -54,3 +54,6 @@ u：预防意外删除。
 -----a-------e-- ./logfile
 -------------e-- ./sendlist
 {% endhighlight %}
+
+{% highlight ruby %}
+{% endhighlight %}
