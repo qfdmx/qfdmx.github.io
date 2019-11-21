@@ -215,8 +215,8 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-	\{\% highlight ruby \%\}
-	\{\% endhighlight \%\}
+		{% highlight ruby %}
+		{% endhighlight %}
 
 &nbsp;
 
