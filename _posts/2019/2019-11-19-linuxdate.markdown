@@ -88,7 +88,28 @@ chmod
     chmod 764 f01
     chmod a+x f01　　//对文件f01的u,g,o都设置可执行属性
 
+find
 
+    -iname<范本样式>：此参数的效果和指定“-name”参数类似，但忽略字符大小写的差别；
+    -inum<inode编号>：查找符合指定的inode编号的文件或目录；
+
+    在/home目录下查找以.txt结尾的文件名
+    find /home -name "*.txt"
+    同上，但忽略大小写
+    find /home -iname "*.txt"
+    当前目录及子目录下查找所有以.txt和.pdf结尾的文件
+    find . \( -name "*.txt" -o -name "*.pdf" \)
+    或
+    find . -name "*.txt" -o -name "*.pdf"
+    匹配文件路径或者文件
+    find /usr/ -path "*local*"
+    基于正则表达式匹配文件路径
+    find . -regex ".*\(\.txt\|\.pdf\)$"
+    同上，但忽略大小写
+
+    find . -iregex ".*\(\.txt\|\.pdf\)$"
+
+    find . -name -f
 
 
 cksum
@@ -106,3 +127,30 @@ cpm
     --help：在线帮助。
 
     cmp testfile testfile1            #比较两个指定的文件
+
+#### 系统管理
+
+  ps
+
+    -A：显示所有程序
+    -e：此选项的效果和指定"A"选项相同
+    -f：显示UID,PPIP,C与STIME栏位
+    a：显示现行终端机下的所有程序，包括其他用户的程序
+    u：以用户为主的格式来显示程序状况
+    x：显示所有程序，不以终端机来区分
+
+    -o 或者 -0 指定格式输出
+    STANDARD FORMAT SPECIFIERS（标准输出格式也有BSD和AIX格式，以下仅为部分）
+    CODE        HEADER    DESCRIPTION
+    cmd         CMD       see args.  (alias args, command).
+    cputime     TIME      cumulative CPU time, "[DD-]hh:mm:ss" format.  (alias time).
+    etime       ELAPSED   elapsed time since the process was started, in the form [[DD-]hh:]mm:ss.
+    etimes      ELAPSED   elapsed time since the process was started, in seconds.
+    lstart      STARTED   time the command started.  See also bsdstart, start, start_time, and stime.
+    pid         PID       a number representing the process ID (alias tgid).
+    start       STARTED   time the command started.  If the process was started less than 24 hours ago, the output format is "HH:MM:SS"
+
+    常用参数举例
+    ps -ef
+    ps aux
+    ps -eo pid,lstart,etime,cmd
