@@ -23,129 +23,129 @@ zabbix分为server端和agent端，server端本文安装对象为centos7，zabbi
 
 主机名修改（非必须）
 
-  vim /etc/hostname
+    vim /etc/hostname
 
 关闭防火墙与防火墙自启（关闭或者使用防火墙规则也可以）
 
-  systemctl stop firewalld
-  systemctl disable firewalld
+    systemctl stop firewalld
+    systemctl disable firewalld
 
 关闭selinux
 
-  临时修改成Permissive状态
-  setenforce 0
+    临时修改成Permissive状态
+    setenforce 0
 
 永久直接关闭selinux（建议），需要重启系统生效
 
-  SELINUX=disabled
+    SELINUX=disabled
 
 修改yum源至缓存模式（用于缓存成离线安装文件）
 
-  vi /etc/yum.conf
-  keepcache=1
+    vi /etc/yum.conf
+    keepcache=1
 
 #### PHP、数据库基础环境安装
 
-  yum install -y httpd mariadb-server mariadb php php-mysql php-gd libjpeg* php-ldap php-odbc php-pear php-xml php-xmlrpc php-mhash php-mbstring php-bcmath
+    yum install -y httpd mariadb-server mariadb php php-mysql php-gd libjpeg* php-ldap php-odbc php-pear php-xml php-xmlrpc php-mhash php-mbstring php-bcmath
 
 #### 数据库配置
 
 数据库启动
 
-  systemctl start mariadb
+    systemctl start mariadb
 
 首次密码设置
 
-  mysqladmin -u root password 123456
+    mysqladmin -u root password 123456
 
 数据库登录
 
-  mysql -u root -p123456
-  show databases;
+    mysql -u root -p123456
+    show databases;
 
 创建数据库
 
-  create database zabbix character set utf8 collate utf8_bin;
+    create database zabbix character set utf8 collate utf8_bin;
 
 远程和本地授权
 
-  #使用zabbix用户和账户但是本文未创建该账户，此语句不完善
-  grant all privileges on zabbix.* to 'zabbix'@'%' identified by 'zabbix';
-  grant all privileges on zabbix.* to zabbix@localhost identified by 'zabbix';
-  #给root账户本地授权和远程授权
-  grant all privileges on *.* to root@localhost identified by '123456';
-  grant all privileges on *.* to 'root'@'%' identified by '123456';
-  #刷新
-  flush privileges;
-  #退出
-  \q
+    #使用zabbix用户和账户但是本文未创建该账户，此语句不完善
+    grant all privileges on zabbix.* to 'zabbix'@'%' identified by 'zabbix';
+    grant all privileges on zabbix.* to zabbix@localhost identified by 'zabbix';
+    #给root账户本地授权和远程授权
+    grant all privileges on *.* to root@localhost identified by '123456';
+    grant all privileges on *.* to 'root'@'%' identified by '123456';
+    #刷新
+    flush privileges;
+    #退出
+    \q
 
 php配置
 
-  vim /etc/php.ini
+    vim /etc/php.ini
 
-  max_execution_time = 300
-  max_input_time = 300
-  post_max_size = 16M
-  date.timezone = Asia/Shanghai
+    max_execution_time = 300
+    max_input_time = 300
+    post_max_size = 16M
+    date.timezone = Asia/Shanghai
 
 httpd配置PHP
 
-  vim /etc/httpd/conf/httpd.conf
-  #httpd加载php
-  DirectoryIndex index.html index.php
+    vim /etc/httpd/conf/httpd.conf
+    #httpd加载php
+    DirectoryIndex index.html index.php
 
 重启httpd
 
-  systemctl start httpd
+    systemctl start httpd
 
 #### zabbix安装
 
 zabbix源下载安装
 
-  3.5源
-  wget http://repo.zabbix.com/zabbix/3.5/rhel/7/x86_64/zabbix-release-3.5-1.el7.noarch.rpm
+    3.5源
+    wget http://repo.zabbix.com/zabbix/3.5/rhel/7/x86_64/zabbix-release-3.5-1.el7.noarch.rpm
 
-  4.4源下载安装
-  wget http://repo.zabbix.com/zabbix/4.4/rhel/7/x86_64/zabbix-release-4.4-1.el7.noarch.rpm
+    4.4源下载安装
+    wget http://repo.zabbix.com/zabbix/4.4/rhel/7/x86_64/zabbix-release-4.4-1.el7.noarch.rpm
 
-  #源安装
-  rpm -ivh zabbix-release-4.4-1.el7.noarch.rpm
+    #源安装
+    rpm -ivh zabbix-release-4.4-1.el7.noarch.rpm
 
 关于源可以登录[zabbix官方源页面](http://repo.zabbix.com/zabbix/)进行选择，并且选择版本，在对于的目录下下载zabbix-release-XX-1.el7.noarch.rpm（此为rhel版本）对应的源文件就行
 
 yum源同步
 
-  yum clean all && yum makecache
+    yum clean all && yum makecache
 
 zabbix安装
 
-  yum install -y zabbix-server-mysql zabbix-web-mysql
+    yum install -y zabbix-server-mysql zabbix-web-mysql
 
 zabbix数据库表导入
 
-  zcat /usr/share/doc/zabbix-server-mysql-4.4.4/create.sql.gz | mysql -u root -p123456 zabbix
+    zcat /usr/share/doc/zabbix-server-mysql-4.4.4/create.sql.gz | mysql -u root -p123456 zabbix
 
 zabbix配置
 
-  vim /etc/zabbix/zabbix_server.conf
+    vim /etc/zabbix/zabbix_server.conf
 
-  LogFile=/var/log/zabbix/zabbix_server.log
-  LogFileSize=0
-  PidFile=/var/run/zabbix/zabbix_server.pid
-  SocketDir=/var/run/zabbix
-  DBName=zabbix
-  DBUser=root
-  DBPassword=123456		//改这个就可以了125行
-  SNMPTrapperFile=/var/log/snmptrap/snmptrap.log
-  Timeout=4
-  AlertScriptsPath=/usr/lib/zabbix/alertscripts
-  ExternalScripts=/usr/lib/zabbix/externalscripts
-  LogSlowQueries=300
+    LogFile=/var/log/zabbix/zabbix_server.log
+    LogFileSize=0
+    PidFile=/var/run/zabbix/zabbix_server.pid
+    SocketDir=/var/run/zabbix
+    DBName=zabbix
+    DBUser=root
+    DBPassword=123456		//改这个就可以了125行
+    SNMPTrapperFile=/var/log/snmptrap/snmptrap.log
+    Timeout=4
+    AlertScriptsPath=/usr/lib/zabbix/alertscripts
+    ExternalScripts=/usr/lib/zabbix/externalscripts
+    LogSlowQueries=300
 
 zabbix页面复制到httpd中
 
-  cp -r /usr/share/zabbix/ /var/www/html/
+    cp -r /usr/share/zabbix/ /var/www/html/
 
 zabbix登录配置
 
@@ -153,11 +153,11 @@ http://ip/zabbix/
 
 默认用户名密码
 
-  Admin/zabbix
+    Admin/zabbix
 
-使用数据库查看默认账户密码
+使用数据库查看默认账户密码（加密）
 
-  mysql -uroot -p -e "select * from zabbix.users\G"
+    mysql -uroot -p -e "select * from zabbix.users\G"
 
 语言修改
 
@@ -165,7 +165,7 @@ http://ip/zabbix/
 
 agent安装
 
-  yum install -y zabbix-agent
+    yum install -y zabbix-agent
 
 以上为centos7安装方式对于其他版本（包括自定以的版本）可以用从[官网agent页面](https://www.zabbix.com/download_agents)按照系统情况和内核情况选择，已经编译好的
 
