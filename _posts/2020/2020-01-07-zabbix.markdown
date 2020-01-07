@@ -288,3 +288,28 @@ zabbix脚本手动调试
 #### 创建自定义内置模板
 
 #### 创建自定义监控项
+
+### Q&A
+
+#### 中文字体
+
+[中文参考链接](https://blog.csdn.net/Callousmaster/article/details/99972089)
+
+取出windows系统中的字体，建议选择楷体simkai.ttf
+
+    C:\Windows\Fonts
+
+然后放入zabbix server服务器（zabbix4+）字体中位置。
+
+    #zabbix4.4
+    /usr/share/zabbix/assets/fonts
+    #zabbix4.0
+    /usr/share/zabbix/fonts/
+
+修改php中，字体支持
+
+    vi /usr/share/zabbix/include/defines.inc.php
+    #注意配置中不写ttf后缀
+    define('ZBX_GRAPH_FONT_NAME',           'simkai'); // font file name
+
+重启zabbix server
