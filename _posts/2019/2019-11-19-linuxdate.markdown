@@ -91,16 +91,30 @@ chmod
 find
 
     -iname<范本样式>：此参数的效果和指定“-name”参数类似，但忽略字符大小写的差别；
+    -o:同时查询
     -inum<inode编号>：查找符合指定的inode编号的文件或目录；
+    -exec<执行指令>：假设find指令的回传值为True，就执行该指令；
+    find . -type 类型参数
+      f 普通文件
+      l 符号连接
+      d 目录
+      c 字符设备
+      b 块设备
+      s 套接字
+      p Fifo
 
     在/home目录下查找以.txt结尾的文件名
     find /home -name "*.txt"
     同上，但忽略大小写
     find /home -iname "*.txt"
     当前目录及子目录下查找所有以.txt和.pdf结尾的文件
-    find . \( -name "*.txt" -o -name "*.pdf" \)
-    或
     find . -name "*.txt" -o -name "*.pdf"
+    当出现乱码的情况可以使用node改名字
+    ls -ali
+    find -inum node -exec mv {} 123.txt \;
+
+
+
     匹配文件路径或者文件
     find /usr/ -path "*local*"
     基于正则表达式匹配文件路径

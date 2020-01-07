@@ -1,0 +1,290 @@
+---
+layout: post
+title:  "zabbix安装与使用"
+date:   2020-01-07 09:00:01 +0800
+categories: system
+tags: zabbix
+description: zabbix指定版本安装，zabbix模板和自定义监控项（暂不包含触发器）
+---
+
+[zabbix安装参考链接](https://blog.csdn.net/ma_mxr/article/details/83820388)原文并没有实际安装过zabbix，且zabbix版本说是4.0但是实际装的应该是3.5,此外数据库部分也是大问题
+
+[zabbix使用参考链接](https://blog.csdn.net/wenhs5479/article/details/90514799)主要内容在于告警触发，这部分本文未阐述，链接仅作参考
+
+本文主要介绍zabbix安装与使用，安装部分的欠缺是对于数据库用户的考虑，由于使用是测试环境，并没有使用zabbix用，而是使用了root并开放了远程登录权限，请勿在生产环境如此，另外使用部分，并没有对于触发器进行配置。
+
+## zabbix安装
+
+zabbix分为server端和agent端，server端本文安装对象为centos7，zabbix版本为4.4当前最新版本，对于如何安装指定版本，可以去官网使用指定源，下文zabbix源安装中有提及。
+
+### zabbix server安装
+
+#### 环境准备
+
+主机名修改（非必须）
+
+  vim /etc/hostname
+
+关闭防火墙与防火墙自启（关闭或者使用防火墙规则也可以）
+
+  systemctl stop firewalld
+  systemctl disable firewalld
+
+关闭selinux
+
+  临时修改成Permissive状态
+  setenforce 0
+
+永久直接关闭selinux（建议），需要重启系统生效
+
+  SELINUX=disabled
+
+修改yum源至缓存模式（用于缓存成离线安装文件）
+
+  vi /etc/yum.conf
+  keepcache=1
+
+#### PHP、数据库基础环境安装
+
+  yum install -y httpd mariadb-server mariadb php php-mysql php-gd libjpeg* php-ldap php-odbc php-pear php-xml php-xmlrpc php-mhash php-mbstring php-bcmath
+
+#### 数据库配置
+
+数据库启动
+
+  systemctl start mariadb
+
+首次密码设置
+
+  mysqladmin -u root password 123456
+
+数据库登录
+
+  mysql -u root -p123456
+  show databases;
+
+创建数据库
+
+  create database zabbix character set utf8 collate utf8_bin;
+
+远程和本地授权
+
+  #使用zabbix用户和账户但是本文未创建该账户，此语句不完善
+  grant all privileges on zabbix.* to 'zabbix'@'%' identified by 'zabbix';
+  grant all privileges on zabbix.* to zabbix@localhost identified by 'zabbix';
+  #给root账户本地授权和远程授权
+  grant all privileges on *.* to root@localhost identified by '123456';
+  grant all privileges on *.* to 'root'@'%' identified by '123456';
+  #刷新
+  flush privileges;
+  #退出
+  \q
+
+php配置
+
+  vim /etc/php.ini
+
+  max_execution_time = 300
+  max_input_time = 300
+  post_max_size = 16M
+  date.timezone = Asia/Shanghai
+
+httpd配置PHP
+
+  vim /etc/httpd/conf/httpd.conf
+  #httpd加载php
+  DirectoryIndex index.html index.php
+
+重启httpd
+
+  systemctl start httpd
+
+#### zabbix安装
+
+zabbix源下载安装
+
+  3.5源
+  wget http://repo.zabbix.com/zabbix/3.5/rhel/7/x86_64/zabbix-release-3.5-1.el7.noarch.rpm
+
+  4.4源下载安装
+  wget http://repo.zabbix.com/zabbix/4.4/rhel/7/x86_64/zabbix-release-4.4-1.el7.noarch.rpm
+
+  #源安装
+  rpm -ivh zabbix-release-4.4-1.el7.noarch.rpm
+
+关于源可以登录[zabbix官方源页面](http://repo.zabbix.com/zabbix/)进行选择，并且选择版本，在对于的目录下下载zabbix-release-XX-1.el7.noarch.rpm（此为rhel版本）对应的源文件就行
+
+yum源同步
+
+  yum clean all && yum makecache
+
+zabbix安装
+
+  yum install -y zabbix-server-mysql zabbix-web-mysql
+
+zabbix数据库表导入
+
+  zcat /usr/share/doc/zabbix-server-mysql-4.4.4/create.sql.gz | mysql -u root -p123456 zabbix
+
+zabbix配置
+
+  vim /etc/zabbix/zabbix_server.conf
+
+  LogFile=/var/log/zabbix/zabbix_server.log
+  LogFileSize=0
+  PidFile=/var/run/zabbix/zabbix_server.pid
+  SocketDir=/var/run/zabbix
+  DBName=zabbix
+  DBUser=root
+  DBPassword=123456		//改这个就可以了125行
+  SNMPTrapperFile=/var/log/snmptrap/snmptrap.log
+  Timeout=4
+  AlertScriptsPath=/usr/lib/zabbix/alertscripts
+  ExternalScripts=/usr/lib/zabbix/externalscripts
+  LogSlowQueries=300
+
+zabbix页面复制到httpd中
+
+  cp -r /usr/share/zabbix/ /var/www/html/
+
+zabbix登录配置
+
+http://ip/zabbix/
+
+默认用户名密码
+
+  Admin/zabbix
+
+使用数据库查看默认账户密码
+
+  mysql -uroot -p -e "select * from zabbix.users\G"
+
+语言修改
+
+### agent安装与自定义版本安装
+
+agent安装
+
+  yum install -y zabbix-agent
+
+以上为centos7安装方式对于其他版本（包括自定以的版本）可以用从[官网agent页面](https://www.zabbix.com/download_agents)按照系统情况和内核情况选择，已经编译好的
+
+如国产（垃圾）凝思8.0版本，就可以使用内核2.6版本的，操作如下
+
+    #查找内核版本
+    uname -a
+    #创建用户和主目录（否则可能有脚本调用失败现象）
+    groupadd zabbix
+    useradd -s /bin/bash -m  zabbix -g zabbix
+    #下载后进行解压安装
+    tar xzvf zabbix_agents-4.4.4-linux3.0-amd64-static.tar.gz
+    cp -pv bin/* /bin/
+    cp -pv sbin/* /sbin/
+    mkdir -p /usr/local/etc/
+    cp -prv conf/* /usr/local/etc/
+
+
+  vim /etc/zabbix/zabbix_agentd.conf
+
+  Server=127.0.0.1
+  ServerActive=127.0.0.1   #主动轮询？
+  Hostname=Zabbix_server
+    #修改目录所属
+    cd /usr/local/etc/
+    chown -R zabbix:zabbix *
+
+zabbix启动
+
+    #zabbix的页面是httpd加载的php，server程序本身并未启动，所以需要手动执行如下命令
+    zabbix_agentd
+    zabbix_server
+
+  zabbix开机启动
+
+    #在启动文件中加入开机自启动
+    vi /etc/rc.local
+    #如果上面文件不存在或者是这个文件
+    vi /etc/rc.d/rc.local
+    #启动配置如下
+    #自定义agent
+    /sbin/zabbix_agentd
+    #rmp包agent与server启动
+    /usr/sbin/zabbix_agentd
+    /usr/sbin/zabbix_server
+
+  修改配置位置
+
+    #使用rpm等安装包修改方式
+    vi /etc/zabbix/zabbix_agentd.conf
+    #使用编译好文件，直接安装修改方式
+    vi /usr/local/etc/zabbix_agentd.conf
+
+    Server=121.42.111.220        # Zabbix Server IP ( 被动模式，客户端被动 )
+    ServerActive=127.0.0.1       # 主动模式，如果使用也填 Zabbix Server IP ，不使用可以注释掉
+    Hostname=101.201.142.247     # 本身 IP ，Zabbix Server 添加主机时需要使用，不一定是 IP
+    # 加载自定义的监控配置文件
+    UnsafeUserParameters=1 # 允许自定义 Key  
+    #脚本放入位置和
+    UserParameter=monitor[*],/bin/bash /usr/local/etc/zabbix_agentd/monitor.sh $1 $2
+    #如果使用多个脚本可以在如下配置文件中配置
+    Include=/usr/local/zabbix_agent/etc/zabbix_agentd.conf.d/*.conf
+
+monitor.sh脚本
+
+    该（垃圾的脚本）脚本是monitor.sh $1 $2，其中$1为程序名称，$2为类型，类型支持pid,cpu,rsz,vsz。脚本本身有的位置冗长是因为awk写到一行，zabbix调用会出现问题
+
+    #!/bin/bash
+    process=$1
+    type=$2
+    if [ $type = "pid" ];then
+    pid=`ps -eo 'user,pid,ppid,pcpu,rsz,vsz,lstart,cmd' | grep $process | grep -v monitor.sh| grep -v grep | grep -v servicedaemon `
+    pid2=`echo $pid | awk '{print $2}'`
+    echo "$pid2"
+    elif [ $type = "cpu" ];then
+    cpu=`ps -eo  'user,pid,ppid,pcpu,rsz,vsz,lstart,cmd' | grep $process | grep -v monitor.sh | grep -v grep | grep -v servicedaemon `
+    cpu2=`echo $cpu | awk '{printf $4}'`
+    echo $cpu2
+    elif [ $type = "rsz" ];then
+    rsz=`ps -eo  'user,pid,ppid,pcpu,rss,vsz,lstart,cmd' | grep $process | grep -v monitor.sh | grep -v grep | grep -v servicedaemon `
+    rsz2=`echo $rsz | awk '{printf $5/1024}'`
+    echo $rsz2
+    elif [ $type = "vsz" ];then
+    vsz=`ps -eo  'user,pid,ppid,pcpu,rsz,vsz,lstart,cmd' | grep $process | grep -v monitor.sh | grep -v grep | grep -v servicedaemon `
+    vsz2=`echo $vsz | awk '{printf $6/1024}'`
+    echo $vsz2
+    else
+    echo 0
+    fi
+
+zabbix脚本手动调试
+
+    #此调试方式并不一定好用，建议直接登录zabbix用调试
+    zabbix_agentd -t monitor[data.jar,pid]
+    #登录zabbix用户直接执行测试
+    su zabbix
+    monitor.sh $1 $2
+
+所有可以使用的键值
+
+    zabbix_agentd –p
+    #自定义的脚本在最后，调用结果为不加参数的报错
+
+### zabbix页面操作
+
+主机配置是每台服务器信息添加，主机群组是主机进行分类
+
+    添加顺序：主机群组  -> 创建主机（页面中会要求主机加入到主机群组）
+
+模板是一个个独立的监控模块，然后模板中可以进行监控项分组即应用集，监控项为最小监控指标单位，触发器是监控指标超阈值进行触发邮件，图形是图表展示也是聚合图形的最小图标
+
+    添加顺序：
+    1.使用已有模板（CPU、内存、硬盘、网络等）进行链接到新模板
+    模板（在标签页进行链接到已有模板）
+    2.自定义监控项  
+    模板 -> 监控项 -> 应用集（监控项中可以直接添加）  -> 触发器（对不用的内网用户可以不添加） -> 图形 -> 聚合图形
+
+#### 创建主机与主机群组
+
+#### 创建自定义内置模板
+
+#### 创建自定义监控项
