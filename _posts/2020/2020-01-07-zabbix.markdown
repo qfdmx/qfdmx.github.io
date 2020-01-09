@@ -151,6 +151,8 @@ zabbix登录配置
 
 http://ip/zabbix/
 
+[![2020-01-07-zabbix-01.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-01.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-01.png)
+
 默认用户名密码
 
     Admin/zabbix
@@ -159,7 +161,24 @@ http://ip/zabbix/
 
     mysql -uroot -p -e "select * from zabbix.users\G"
 
+
+[![2020-01-07-zabbix-02.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-02.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-02.png)
+
+
+[![2020-01-07-zabbix-03.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-03.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-03.png)
+
+
+[![2020-01-07-zabbix-04.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-04.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-04.png)
+
+
+[![2020-01-07-zabbix-05.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-05.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-05.png)
+
+
+[![2020-01-07-zabbix-06.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-06.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-06.png)
+
 语言修改
+
+[![2020-01-07-zabbix-07.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-07.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-07.png)
 
 ### agent安装与自定义版本安装
 
@@ -283,11 +302,62 @@ zabbix脚本手动调试
     2.自定义监控项  
     模板 -> 监控项 -> 应用集（监控项中可以直接添加）  -> 触发器（对不用的内网用户可以不添加） -> 图形 -> 聚合图形
 
-#### 创建主机与主机群组
+`建议先添加模板然后添加主机，这样可以将模板直接应用到主机上`
 
 #### 创建自定义内置模板
 
+[![2020-01-07-zabbix-12.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-12.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-12.png)
+
+链接至内置模板
+
+[![2020-01-07-zabbix-13.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-13.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-13.png)
+
 #### 创建自定义监控项
+
+创建模板
+
+[![2020-01-07-zabbix-14.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-14.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-14.png)
+
+添加监控项
+
+[![2020-01-07-zabbix-15.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-15.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-15.png)
+
+[![2020-01-07-zabbix-16.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-16.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-16.png)
+
+自定义监控项参数（调用自定义脚本和添加到应用集）
+
+[![2020-01-07-zabbix-17.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-17.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-17.png)
+
+创建图形
+
+[![2020-01-07-zabbix-18.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-18.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-18.png)
+
+[![2020-01-07-zabbix-19.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-19.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-19.png)
+
+创建聚合图形（在选定的时间段同时显示多个图形）
+
+[![2020-01-07-zabbix-20.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-20.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-20.png)
+
+[![2020-01-07-zabbix-21.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-21.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-21.png)
+
+#### 创建主机群组与主机
+
+创建主机群组
+
+[![2020-01-07-zabbix-08.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-08.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-08.png)
+
+创建主机
+
+[![2020-01-07-zabbix-09.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-09.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-09.png)
+
+主机应用到主机群组
+
+[![2020-01-07-zabbix-10.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-10.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-10.png)
+
+进行模板链接
+
+[![2020-01-07-zabbix-11.png]({{ site.baseurl }}\assets\post_image\2020\2020-01-07-zabbix-11.png)](https://qfdmx.github.io/assets/post_image/2020/2020-01-07-zabbix-11.png)
+
 
 ### Q&A
 
