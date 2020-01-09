@@ -11,7 +11,7 @@ description: zabbix指定版本安装，zabbix模板和自定义监控项（暂�
 
 [zabbix使用参考链接](https://blog.csdn.net/wenhs5479/article/details/90514799)主要内容在于告警触发，这部分本文未阐述，链接仅作参考
 
-本文主要介绍zabbix安装与使用，安装部分的欠缺是对于数据库用户的考虑，由于使用是测试环境，并没有使用zabbix用，而是使用了root并开放了远程登录权限，请勿在生产环境如此，另外使用部分，并没有对于触发器进行配置。
+本文主要介绍zabbix安装与使用，安装部分的欠缺是对于数据库用户的考虑，由于使用是测试环境，并没有使用zabbix用户，而是使用了root并开放了远程登录权限，请勿在生产环境如此，另外使用部分，并没有对于触发器进行配置。
 
 ## zabbix安装
 
@@ -250,7 +250,7 @@ zabbix启动
 
 monitor.sh脚本
 
-    该（垃圾的脚本）脚本是monitor.sh $1 $2，其中$1为程序名称，$2为类型，类型支持pid,cpu,rsz,vsz。脚本本身有的位置冗长是因为awk写到一行，zabbix调用会出现问题
+    该（垃圾）脚本是monitor.sh $1 $2，其中$1为程序名称，$2为类型，类型支持pid,cpu,rsz,vsz。脚本本身有的位置冗长是因为awk写到一行，zabbix调用会出现问题
 
     #!/bin/bash
     process=$1
