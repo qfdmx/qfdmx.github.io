@@ -113,8 +113,6 @@ find
     ls -ali
     find -inum node -exec mv {} 123.txt \;
 
-
-
     匹配文件路径或者文件
     find /usr/ -path "*local*"
     基于正则表达式匹配文件路径
@@ -124,6 +122,8 @@ find
     find . -iregex ".*\(\.txt\|\.pdf\)$"
 
     find . -name -f
+
+
 
 
 cksum
@@ -167,4 +167,4 @@ cpm
     常用参数举例
     ps -ef
     ps aux
-    ps -eo pid,lstart,etime,cmd
+    ps -eo pid,rsz,vsz,lstart,etime,cmd

@@ -1,0 +1,71 @@
+---
+layout: post
+title:  "报文测试"
+date:   2020-02-19 20:22:22 +0800
+categories: network
+tags: tcpip
+description: 网络协议基础、wireshark抓包技巧、snmp与tarp初识
+---
+最近公司要求通过开发的规范文档，校验报文的准确性和装置响应异常报文的情况。虽然不会构造发出tcp交互报文需要工具支持，但是需要抓包进行报文比对分析。本文暂未加入tcpip三次握手等内容，只是实际技能的初始和介绍
+
+### 名词介绍
+
+#### 1.1上行报文和下行报文
+
+报文：通讯中发送的数据包。
+    上行：常指从客户端发送至服务器端。
+    下行：常指从服务器端发送回客户端。
+
+但对于某些平台和装置的客户端和服务器的概念并不清晰时候会进行单独指出如图：
+
+[![2020-02-19-tcpip-01.png]({{ site.baseurl }}\assets\post_image\2020\2020-02-19-tcpip-01.png)](https://qfdmx.github.io/assets/post_image/2020/2020-02-19-tcpip-01.png)
+
+#### 1.2报文格式与字节
+
+一位十六进制的数等于四位二进制的数。一个字节等于8位二进制数，如二进制1111等于十进制15
+
+    bin：1111
+    dec：15
+
+[![2020-02-19-tcpip-02.png]({{ site.baseurl }}\assets\post_image\2020\2020-02-19-tcpip-02.png)](https://qfdmx.github.io/assets/post_image/2020/2020-02-19-tcpip-02.png)
+
+所以两位的十六进制数字即为1字节，两位十六进制数据那么也就可以定义（每一位都是0~f十五个数值） 15*15=255。举例tcp/ip中传输源ip：192.168.25.5换算如下
+
+    dec：192 168 25  5
+    hex：c0  a8  19  05  =>(12*16 10*16+8 1*16+9 5)
+
+总结：传输是按照二进制传输的，但是转换成可识别的字符是十六进制，两位十六进制是一个字节
+
+[![2020-02-19-tcpip-03.png]({{ site.baseurl }}\assets\post_image\2020\2020-02-19-tcpip-03.png)](https://qfdmx.github.io/assets/post_image/2020/2020-02-19-tcpip-03.png)
+
+#### 1.3报文封装
+
+我们上面说的报文应用层报文，然后经过TCP/IP协议进行封装，如下图所示：
+
+[![2020-02-19-tcpip-04.png]({{ site.baseurl }}\assets\post_image\2020\2020-02-19-tcpip-04.png)](https://qfdmx.github.io/assets/post_image/2020/2020-02-19-tcpip-04.png)
+
+简图参考
+
+[![2020-02-19-tcpip-05.png]({{ site.baseurl }}\assets\post_image\2020\2020-02-19-tcpip-05.png)](https://qfdmx.github.io/assets/post_image/2020/2020-02-19-tcpip-05.png)
+
+#### 1.4应用层报文分析与wireshark技巧
+
+举例装置客户端向装置发送路由配置请求报文，装置回复给客户端路由配置，装置ip：192.168.8.100，客户端ip：192.168.8.200
+
+linux客户端到监测装置，
+
+[![2020-02-19-tcpip-06.png]({{ site.baseurl }}\assets\post_image\2020\2020-02-19-tcpip-06.png)](https://qfdmx.github.io/assets/post_image/2020/2020-02-19-tcpip-06.png)
+
+监测装置到linux客户端
+
+[![2020-02-19-tcpip-07.png]({{ site.baseurl }}\assets\post_image\2020\2020-02-19-tcpip-07.png)](https://qfdmx.github.io/assets/post_image/2020/2020-02-19-tcpip-07.png)
+
+wireshark查看报文定位技巧
+
+[![2020-02-19-tcpip-08.png]({{ site.baseurl }}\assets\post_image\2020\2020-02-19-tcpip-08.png)](https://qfdmx.github.io/assets/post_image/2020/2020-02-19-tcpip-08.png)
+
+### 1.5snmp与snmp trap
+
+SNMP 是一个协议用来管理网络上的节点，（包括工作站，路由器，交换机，集线器和其他的外围设备）。SNMP是一个应用协议，使用UDP封装进行传输。UDP是一个无连接的传输层协议，在OSI模型中为第四层协议，提供简单的可靠的传输服务。SNMP使网络管理者能够管理网络性能，发现和解决网络问题，规划网络的增长。当前，定义了三个版本的网络管理协议，SNMP v1，SNMP v2，SNMP v3。`SNMP v1，v2有很多共同的特征，SNMP v3 在先前的版本地基础上增加了安全和远程配置能力 。`为了解决不同版本的兼容性问题，RFC3584定义了共存策略。
+
+`SNMP trap(SNMP 陷阱)：某种入口，到达该入口会使SNMP被管设备主动通知SNMP管理器,而不是等待SNMP管理器的再次轮询。`在网管系统中，被管理设备中的代理可以在任何时候向网络管理工作站报告错误情况，例如预制定阈值越界程度等等。代理并不需要等到管理工作站为获得这些错误情况而轮询他的时候才会报告。这些错误情况就是众所周知的SNMP自陷（trap）。

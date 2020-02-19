@@ -22,6 +22,32 @@ description: ssh遇到问题集合
 
 本质是lib库配置配置问题，根本解决需要重新配置LD_LIBRARY_PATH变量
 
+### scp后台传送文件
+
+#### 1.使用ssh免密+nohup
+
+配置ssh免密登录，参看下文。然后使用如下命令：
+
+		#注：该方法笔者实际使用过程中出现进程没有掉，但是文件在断开后不再传输
+		nohup scp file root@ip:/opt >/dev/null &
+		exit
+
+#### 2.使用命令任务
+
+[参考链接](https://www.cnblogs.com/jyzhao/p/6253728.html)，该方法不需要配置ssh免密，此外笔者亲测退出后文件继续传输
+
+		#scp命令并且输入密码
+		scp file root@ip:/opt >/dev/null
+		#输入ctrl+z暂停任务，jobs查看[序号]
+		jobs
+		#放入后台
+		bg %序号
+		#将这个作业忽略HUP信号，然后退出
+		disown -h %序号
+		exit
+		#目标主机上检查传输是否进行传输
+		du -sh
+
 ### ssh免密登录
 
 		生成公钥一直敲回车即可
