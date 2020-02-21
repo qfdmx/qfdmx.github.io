@@ -168,3 +168,13 @@ cpm
     ps -ef
     ps aux
     ps -eo pid,rsz,vsz,lstart,etime,cmd
+
+### date
+
+    ##格式化输出
+    date "+%Y-%m-%d %H:%M:%S"
+    date -d "20200216 23:59:59" "+%Y-%m-%d %H:%M:%S"
+    ##指定时间至1970初始时间到秒的双向转换
+    date +%s
+    date -d "2020-02-16 23:59:59" +%s
+    date -d @1581868799  "+%Y-%m-%d %H:%M:%S"
