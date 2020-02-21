@@ -2,8 +2,8 @@
 layout: post
 title:  "ssh与scp"
 date:   2018-10-15 00:00:01 +0800
-categories: system
-tags: linux soft
+categories: software
+tags: linux
 description: ssh遇到问题集合
 ---
 ### scp报错 lost connection

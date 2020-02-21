@@ -2,7 +2,7 @@
 layout: post
 title:  "namp速记"
 date:   2018-09-29 00:00:01 +0800
-categories: 安全测试
+categories: security_test
 tags: nmap kali
 description: namp速记
 ---

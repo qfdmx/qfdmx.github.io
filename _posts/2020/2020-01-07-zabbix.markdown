@@ -2,7 +2,7 @@
 layout: post
 title:  "zabbix安装与使用"
 date:   2020-01-07 09:00:01 +0800
-categories: system
+categories: software
 tags: zabbix
 description: zabbix指定版本安装，zabbix模板和自定义监控项（暂不包含触发器）
 ---

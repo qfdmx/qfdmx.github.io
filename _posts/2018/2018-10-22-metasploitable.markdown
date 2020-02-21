@@ -2,7 +2,7 @@
 layout: post
 title:  "metasploitable2练习"
 date:   2018-10-22 00:00:02 +0800
-categories: 安全测试
+categories: security_test
 tags: metasploitable kali
 description: 使用kali工具练习metasploitable2
 ---

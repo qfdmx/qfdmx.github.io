@@ -2,7 +2,7 @@
 layout: post
 title:  "ip协议号"
 date:   2018-09-29 00:00:02 +0800
-categories: 网络基础
+categories: network
 tags: ip nmap
 description: IP协议号
 ---

@@ -2,7 +2,7 @@
 layout: post
 title:  "shell中ip与数字循环"
 date:   2019-11-21 12:00:01 +0800
-categories: system
+categories: software_test
 tags: shell
 description: 将一段内容中的ip也包括数字进行循环输出
 ---

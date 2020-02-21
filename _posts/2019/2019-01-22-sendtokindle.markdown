@@ -2,7 +2,7 @@
 layout: post
 title:  "sendtokindle"
 date:   2019-01-22 00:00:01 +0800
-categories: 瞎折腾
+categories: tips
 tags: kindle
 description: sendtokindle不完全靠谱指南
 ---

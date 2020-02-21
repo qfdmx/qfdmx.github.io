@@ -2,7 +2,7 @@
 layout: post
 title:  "msfconsole"
 date:   2018-12-04 00:00:01 +0800
-categories: 安全测试
+categories: security_test
 tags: msfconsole
 description: msfconsole初学
 ---

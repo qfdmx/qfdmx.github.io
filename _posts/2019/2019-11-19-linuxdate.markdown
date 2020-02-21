@@ -2,7 +2,7 @@
 layout: post
 title:  "linux命令参数新发现"
 date:   2019-11-19 09:00:01 +0800
-categories: system
+categories: opeartion_system
 tags: linux
 description: 每日更新一个
 ---
