@@ -69,6 +69,8 @@ awk -F'|' '{print $2"|"$3"|"$NF}' txt
 awk '{ $3=""; print $0 }' txt
 #打印内容引用shell变量$line
 awk -F'|' '{print $2'$line'$NF}' txx
+#打印内容第8列到结尾
+awk '{{for(i=8;i<=NF;i++){printf $i" "}} print $NF}'
 {% endhighlight %}
 
 #### BEGIN与END
