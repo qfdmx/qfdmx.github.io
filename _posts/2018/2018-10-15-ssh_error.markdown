@@ -55,6 +55,12 @@ description: ssh遇到问题集合
 		将公钥放在登录主机上注意，结尾写成什么样子，该样子的登录不用输入密码
 		ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.25.118
 
+### ssh免密登录提示成功但仍需输入密码
+
+		查看被登录主机报错：
+		Authentication refused: bad ownership or modes for directory /home/p2000
+		问题原因/home/p2000目录的权限其他类型被赋予写权限不安全。所以被拒绝
+
 ### ssh问题记录
 
 #### PTY allocation request failed on channel 0

@@ -178,3 +178,7 @@ cpm
     date +%s
     date -d "2020-02-16 23:59:59" +%s
     date -d @1581868799  "+%Y-%m-%d %H:%M:%S"
+
+### strace
+
+    strace ls
