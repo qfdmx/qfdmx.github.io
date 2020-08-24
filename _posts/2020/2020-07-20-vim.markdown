@@ -9,6 +9,10 @@ description: vi与vim
 
 ### vi与vim快捷键
 
+[图片引用链接](https://www.runoob.com/linux/linux-vim.html)
+
+[![2020-02-19-tcpip-01.png]({{ site.baseurl }}\assets\post_image\2020\2020-02-19-tcpip-01.png)](https://qfdmx.github.io/assets/post_image/2020/2020-02-19-tcpip-01.png)
+
     常用快捷命令
     退出  :q
     保存  :w
