@@ -22,6 +22,12 @@ description: ssh遇到问题集合
 
 本质是lib库配置配置问题，根本解决需要重新配置LD_LIBRARY_PATH变量
 
+### ssh加载过慢
+
+	vi /etc/ssh/sshd_config
+	------------------------
+	UseDNS no
+
 ### scp后台传送文件
 
 #### 1.使用ssh免密+nohup

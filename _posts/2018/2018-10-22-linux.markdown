@@ -1,16 +1,12 @@
 ---
 layout: post
-title:  "linux tips"
+title:  "linux版本差异积累"
 date:   2018-10-22 00:00:00 +0800
 categories: opeartion_system
-tags: linux soft ssh 开机启动
-description: linux 小技巧积累
+tags: 开机启动
+description: 
 ---
-### ssh加载过慢
 
-	vi /etc/ssh/sshd_config
-	------------------------
-	UseDNS no
 ### kali或者Debian系统ssh开机启动
 
 	update-rc.d ssh enable
