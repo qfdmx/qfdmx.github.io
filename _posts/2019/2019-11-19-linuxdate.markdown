@@ -6,6 +6,49 @@ categories: opeartion_system
 tags: linux
 description: linux命令积累
 ---
+#### shell内建命令
+
+jobs,bg,fg
+
+    jobs
+    `-l：显示进程号；`
+    -p：仅任务对应的显示进程号；
+    -n：显示任务状态的变化；
+    -r：仅输出运行状态（running）的任务；
+    -s：仅输出停止状态（stoped）的任务。
+
+    fg
+    fg 任务号
+    fg %任务号
+
+    bg
+    bg 任务号
+    bg %任务号
+
+    实例
+    使用 sleep 10000 & 后
+    查看任务jobs -l
+    将后台任务调到前台执行 fg 1
+    挂起当前任务  ctrl+z (等同于kill -19 %任务号)
+    查看任务jobs -l
+    将后台任务继续执行 bg 1
+
+kill
+
+    `-l  信号，若果不加信号的编号参数，则使用“-l”参数会列出全部的信号名称(42种)`
+    -a  当处理当前进程时，不限制命令名和进程号的对应关系
+    -p  指定kill 命令只打印相关进程的进程号，而不发送任何信号
+    -s  指定发送信号
+    `-u  指定用户`
+
+    HUP     1    终端断线
+    INT     2    中断（同 Ctrl + C）
+    QUIT    3    退出（同 Ctrl + \\）
+    TERM    15   终止
+    KILL    9    强制终止
+    CONT    18   继续（与STOP相反， fg/bg命令）
+    STOP    19   暂停（同 Ctrl + Z）
+
 #### 文件管理
 
 cp
