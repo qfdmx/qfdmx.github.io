@@ -43,11 +43,30 @@ kill
 
     HUP     1    终端断线
     INT     2    中断（同 Ctrl + C）
-    QUIT    3    退出（同 Ctrl + \\）
+    QUIT    3    退出（同 Ctrl + \）
     TERM    15   终止
     KILL    9    强制终止
     CONT    18   继续（与STOP相反， fg/bg命令）
     STOP    19   暂停（同 Ctrl + Z）
+
+    init进程不可杀
+
+seq
+
+    seq [选项]... 尾数
+    seq [选项]... 首数 尾数
+    seq [选项]... 首数 增量 尾数
+
+    -f, --format=格式        使用printf 样式的浮点格式
+    -s, --separator=字符串   使用指定字符串分隔数字（默认使用：\n）
+    -w, --equal-width        在列前添加0 使得宽度相同
+
+    sed -f"%03g" 9 11
+    seq -f"str%03g" 9 11
+    seq -w 98 101
+    seq -s" " -f"str%03g" 9 11
+    seq -s"`echo -e "/t"`" 9 11  #9到11用/t分隔
+    seq -s"`echo -e "\n"`" 9 11  #1到11用9分隔
 
 #### 文件管理
 
