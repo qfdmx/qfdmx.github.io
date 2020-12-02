@@ -86,7 +86,7 @@ SYN,FIN,ACK,PSH,RST,DATA,TSval,TSecr
 
 实际过程中的数据交换多是数据传输，所以针对实际数据传输的截图如下
 
-[![2020-09-27-wireshark-01.png]({{ site.baseurl }}\assets\post_image\2020\2020-09-27-wireshark-01.png)](https://qfdmx.github.io/assets/post_image/2020/2020-09-27-wireshark-01.png)
+[![2020-09-27-wireshark-02.png]({{ site.baseurl }}\assets\post_image\2020\2020-09-27-wireshark-02.png)](https://qfdmx.github.io/assets/post_image/2020/2020-09-27-wireshark-02.png)
 
     seq=ack(-1) #即为该服务器接收对端的ack的值，图示绿色部分
     ack=seq(-1)+len(-1) #即为该服务器接收对端的seq+len的值，图示红色部分
