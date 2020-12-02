@@ -92,12 +92,22 @@ SYN,FIN,ACK,PSH,RST,DATA,TSval,TSecr
     ack=seq(-1)+len(-1) #即为该服务器接收对端的seq+len的值，图示红色部分
     当为蓝色出现即seq数据少了1证明有丢包现象，所以后面又重新进行了补发（wireshark中黑色是坏的部分）
 
-[包丢失 DUP](https://blog.csdn.net/chenfengdejuanlian/article/details/53761004)
+#### [wireshark BAD TCP](https://blog.csdn.net/chenlycly/article/details/52402945)
 
-    TCP dup ack XXX#X原因分析：
+[TCP Dup ACK XXX#X](https://blog.csdn.net/chenfengdejuanlian/article/details/53761004)
+
     就是重复应答#前的表示报文到哪个序号丢失，#后面的是表示第几次丢失。
     tcp previous segment not captured原因分析
     意思就是报文没有捕捉到，出现报文的丢失。
+
+[tcp keep-alive ack](https://www.cnblogs.com/god-of-death/p/7102151.html)
+
+    以服务器端为例，如果当前 server 端检测到超过一定时间（默认是 7,200,000 milliseconds ，也就是 2 个小时）没有数据传输，那么会 向client 端发送一个 keep-alive packet （该 keep-alive packet 就是 ACK 和当前 TCP 序列号减一的组合），此时 client 端应该为以下三种情况之一：
+
+    1. client 端仍然存在，网络连接状况良好。此时 client 端会返回一个 ACK 。 server 端接收到 ACK 后重置计时器，在 2 小时后再发送探测。如果 2 小时内连接上有数据传输，那么在该时间基础上向后推延 2 个小时。
+    2. 客户端异常关闭，或是网络断开。在这两种情况下， client 端都不会响应。服务器没有收到对其发出探测的响应，并且在一定时间（系统默认为
+    1000 ms ）后重复发送 keep-alive packet ，并且重复发送一定次数（ 2000 XP 2003 系统默认为 5 次 , Vista 后的系统默认为 10 次）。
+    3. 客户端曾经崩溃，但已经重启。这种情况下，服务器将会收到对其存活探测的响应，但该响应是一个复位，从而引起服务器对连接的终止。
 
 ### wireshark报文筛选
 
