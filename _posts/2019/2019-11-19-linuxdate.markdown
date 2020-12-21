@@ -68,6 +68,22 @@ seq
     seq -s"`echo -e "/t"`" 9 11  #9到11用/t分隔
     seq -s"`echo -e "\n"`" 9 11  #1到11用9分隔
 
+vmstat
+
+    -a, --active           active/inactive memory
+    -f, --forks            number of forks since boot
+    -m, --slabs            slabinfo
+    -n, --one-header       do not redisplay header
+    -s, --stats            event counter statistics
+    -d, --disk             disk statistics
+    -D, --disk-sum         summarize disk statistics
+    -p, --partition <dev>  partition specific statistics
+    -S, --unit <char>      define display unit
+    -w, --wide             wide output
+    -t, --timestamp        show timestamp
+
+    vmstat -t -S m 1
+
 #### 文件管理
 
 cp
@@ -264,7 +280,7 @@ cpm
     ps aux
     ps -eo pid,rsz,vsz,lstart,etime,cmd
 
-   date
+date
 
     ##格式化输出
     date "+%Y-%m-%d %H:%M:%S"
@@ -273,6 +289,11 @@ cpm
     date +%s
     date -d "2020-02-16 23:59:59" +%s
     date -d @1581868799  "+%Y-%m-%d %H:%M:%S"
+
+alias
+
+    alias 新的命令='原命令 -选项/参数'
+    alias -p
 
 ### strace
 
