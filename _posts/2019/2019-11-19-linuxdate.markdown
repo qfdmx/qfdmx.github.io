@@ -84,6 +84,33 @@ vmstat
 
     vmstat -t -S m 1
 
+export
+
+    -f：代表[变量名称]中为函数名称；
+    -n：删除指定的变量。变量实际上并未删除，只是不会输出到后续指令的执行环境中；
+    -p：列出所有的shell赋予程序的环境变量。
+
+ulimit
+
+    [root@localhost ~]# ulimit -a  #显示目前资源限制的设定；                                    
+    core file size          (blocks, -c) 0           #core文件的最大值为100 blocks。
+    data seg size           (kbytes, -d) unlimited   #进程的数据段可以任意大。
+    scheduling priority             (-e) 0
+    file size               (blocks, -f) unlimited   #文件可以任意大。
+    pending signals                 (-i) 98304       #最多有98304个待处理的信号。
+    max locked memory       (kbytes, -l) 32          #一个任务锁住的物理内存的最大值为32KB。
+    max memory size         (kbytes, -m) unlimited   #一个任务的常驻物理内存的最大值。
+    open files                      (-n) 1024        #一个任务最多可以同时打开1024的文件。
+    pipe size            (512 bytes, -p) 8           #管道的最大空间为4096字节。
+    POSIX message queues     (bytes, -q) 819200      #POSIX的消息队列的最大值为819200字节。
+    real-time priority              (-r) 0
+    stack size              (kbytes, -s) 10240       #进程的栈的最大值为10240字节。
+    cpu time               (seconds, -t) unlimited   #进程使用的CPU时间。
+    max user processes              (-u) 98304       #当前用户同时打开的进程（包括线程）的最大个数为98304。
+    virtual memory          (kbytes, -v) unlimited   #没有限制进程的最大地址空间。
+    file locks                      (-x) unlimited   #所能锁住的文件的最大个数没有限制。
+
+
 #### 文件管理
 
 cp
