@@ -125,7 +125,13 @@ pstree
     -U：使用UTF-8列绘图字符；
     -V：显示版本信息。
 
+shopt
 
+    使用shopt命令显示当前所有可以设置的shell操作选项
+    -s：激活指定的shell行为选项；
+    -u：关闭指定的shell行为选项。
+    shopt -s cdspell
+    cdspell on
 
 #### 文件管理
 
