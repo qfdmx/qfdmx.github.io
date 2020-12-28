@@ -133,6 +133,15 @@ shopt
     shopt -s cdspell
     cdspell on
 
+let
+
+    自加操作let no++
+    自减操作let no--
+    简写形式let no+=10，let no-=20，分别等同于let no=no+10，let no=no-20
+    
+    let a=5+4 b=9-3
+    echo $a $b
+
 #### 文件管理
 
 cp
