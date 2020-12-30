@@ -138,12 +138,72 @@ let
     自加操作let no++
     自减操作let no--
     简写形式let no+=10，let no-=20，分别等同于let no=no+10，let no=no-20
-    
+
     let a=5+4 b=9-3
     echo $a $b
 
-#### 文件管理
+bind
 
+    -d：显示按键配置的内容；
+    -f<按键配置文件>：载入指定的按键配置文件；
+    -l：列出所有的功能；
+    -m<按键配置>：指定按键配置；
+    -q<功能>：显示指定功能的按键；
+    -v：列出目前的按键配置与其功能。
+
+    bind -x '"\C-l":ls -l'    #直接按 CTRL+L 就列出目录
+
+    showkey -a
+
+tput
+
+    tput clear # 清屏
+    tput sc # 保存当前光标位置
+    tput cup 10 13 # 将光标移动到 row col
+    tput civis # 光标不可见
+    tput cnorm # 光标可见
+    tput rc # 显示输出
+    exit 0
+
+    tput sc ; tput cup 23 45
+
+    tput setb 6 && tput setf 1
+    0：黑色
+    1：蓝色
+    2：绿色
+    3：青色
+    4：红色
+    5：洋红色
+    6：黄色
+    7：白色
+
+    要将文本更改为粗体，请使用 bold 选项。要开始添加下划线，请使用 smul 选项。在完成显示带下划线的文本后，请使用 rmul 选项
+
+    tput setb 6 && tput setf 1 && tput bold && tput smul
+
+#### 文件管理
+tput
+
+tput clear # 清屏
+tput sc # 保存当前光标位置
+tput cup 10 13 # 将光标移动到 row col
+tput civis # 光标不可见
+tput cnorm # 光标可见
+tput rc # 显示输出
+exit 0
+
+tput sc ; tput cup 23 45
+
+tput setb 6 && tput setf 1
+0：黑色
+1：蓝色
+2：绿色
+3：青色
+4：红色
+5：洋红色
+6：黄色
+7：白色
+tput setb 6 && tput setf 1 && tput bold && tput smul
 cp
 
     -a：此参数的效果和同时指定"-dpR"参数相同；
