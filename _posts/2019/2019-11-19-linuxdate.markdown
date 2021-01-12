@@ -336,7 +336,7 @@ cpm
     -v或——version：显示版本信息；
     --help：在线帮助。
 
-    cmp testfile testfile1            #比较两个指定的文件
+    cpm testfile testfile1            #比较两个指定的文件
 
 
   tar
@@ -370,6 +370,26 @@ cpm
     tar xvf scf.tar.gz       #防止因为j或者z导致的属性不匹配解压失败
     tar xzvf scf.tar.gz
     tar --exclude scf/service -zcvf scf.tar.gz scf/*
+
+split
+
+    split命令可以将一个大文件分割成很多个小文件，有时需要将文件分割成更小的片段，比如为提高可读性，生成日志等。
+
+    -b：值为每一输出档案的大小，单位为 byte。
+    -C：每一输出档中，单行的最大 byte 数。
+    -d：使用数字作为后缀。
+    -l：值为每一输出档的列数大小。
+
+    split -b 100k hello.tar
+    cat xa* > hello.tar2
+
+    文件被分割成多个带有字母的后缀文件，如果想用数字后缀可使用-d参数，同时可以使用-a length来指定后缀的长度：
+    split -b 10k date.file -d -a 3
+    split -b 10k date.file -d -a 3 split_file
+
+    使用-l选项根据文件的行数来分割文件，例如把文件分割成每个包含10行的小文件
+    split -l 10 date.file
+
 #### 网络管理
 
 
