@@ -51,6 +51,32 @@ kill
 
     init进程不可杀
 
+pkill
+
+    Linux pkill 用于杀死一个进程，与 kill 不同的是它会杀死指定名字的所有进程，类似于 killall 命令。
+    kill 命令杀死指定进程 PID，需要配合 ps 使用，而 pkill 直接对进程对名字进行操作，更加方便。
+
+    -<sig>, --signal <sig>    signal to send (either number or name)
+    -e, --echo                display what is killed
+    -c, --count               count of matching processes
+    -f, --full                use full process name to match
+    -g, --pgroup <PGID,...>   match listed process group IDs
+    -G, --group <GID,...>     match real group IDs
+    -i, --ignore-case         match case insensitively
+    -n, --newest              select most recently started
+    -o, --oldest              select least recently started
+    -P, --parent <PPID,...>   match only child processes of the given parent
+    -s, --session <SID,...>   match session IDs
+    -t, --terminal <tty,...>  match by controlling terminal
+    -u, --euid <ID,...>       match by effective IDs
+    -U, --uid <ID,...>        match by real IDs
+    -x, --exact               match exactly with the command name
+    -F, --pidfile <file>      read PIDs from file
+    -L, --logpidfile          fail if PID file is not locked
+    --ns <PID>                match the processes that belong to the same
+
+    pkill -9  php-fpm          //结束所有的 php-fpm 进程
+
 seq
 
     seq [选项]... 尾数
@@ -390,6 +416,32 @@ split
     使用-l选项根据文件的行数来分割文件，例如把文件分割成每个包含10行的小文件
     split -l 10 date.file
 
+od
+
+    -a 　此参数的效果和同时指定"-ta"参数相同。
+    -A<字码基数> 　选择要以何种基数计算字码。
+    -b 　此参数的效果和同时指定"-toC"参数相同。
+    -c 　此参数的效果和同时指定"-tC"参数相同。
+    -d 　此参数的效果和同时指定"-tu2"参数相同。
+    -f 　此参数的效果和同时指定"-tfF"参数相同。
+    -h 　此参数的效果和同时指定"-tx2"参数相同。
+    -i 　此参数的效果和同时指定"-td2"参数相同。
+    -j<字符数目>或--skip-bytes=<字符数目> 　略过设置的字符数目。
+    -l 　此参数的效果和同时指定"-td4"参数相同。
+    -N<字符数目>或--read-bytes=<字符数目> 　到设置的字符数目为止。
+    -o 　此参数的效果和同时指定"-to2"参数相同。
+    -s<字符串字符数>或--strings=<字符串字符数> 　只显示符合指定的字符数目的字符串。
+    -t<输出格式>或--format=<输出格式> 　设置输出格式。
+    -v或--output-duplicates 　输出时不省略重复的数据。
+    -w<每列字符数>或--width=<每列字符数> 　设置每列的最大字符数。
+    -x 　此参数的效果和同时指定"-h"参数相同。
+    --help 　在线帮助。
+    --version 　显示版本信息。
+
+    echo abcdef g 123 > tmp
+    od -b tmp
+    od -c tmp
+
 #### 网络管理
 
 
@@ -460,6 +512,7 @@ alias
 
     alias 新的命令='原命令 -选项/参数'
     alias -p
+
 
 ### strace
 
