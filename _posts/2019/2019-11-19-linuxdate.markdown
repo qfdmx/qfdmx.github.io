@@ -513,6 +513,32 @@ alias
     alias 新的命令='原命令 -选项/参数'
     alias -p
 
+### 常用命令
+
+xargs
+
+    xargs命令是给其他命令传递参数的一个过滤器，也是组合多个命令的一个工具。它擅长将标准输入数据转换成命令行参数，xargs能够处理管道或者stdin并将其转换成特定命令的命令参数。xargs也可以将单行或多行文本输入转换为其他格式，例如多行变单行，单行变多行。xargs的默认命令是echo，空格是默认定界符。这意味着通过管道传递给xargs的输入将会包含换行和空白，不过通过xargs的处理，换行和空白将被空格取代。xargs是构建单行命令的重要组件之一。
+
+    cat test.txt | xargs
+    a b c d e f g h i j k l m n o p q r s t u v w x y z
+
+    cat test.txt | xargs -n3
+    a b c
+    d e f
+    g h i
+    j k l
+    m n o
+    p q r
+    s t u
+    v w x
+    y z
+
+    echo "nameXnameXnameXname" | xargs -dX
+    name name name name
+
+    echo "nameXnameXnameXname" | xargs -dX -n2
+    name name
+    name name
 
 ### strace
 
