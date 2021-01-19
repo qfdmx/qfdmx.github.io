@@ -508,6 +508,19 @@ date
     date -d "2020-02-16 23:59:59" +%s
     date -d @1581868799  "+%Y-%m-%d %H:%M:%S"
 
+cal
+
+    Usage: cal [-jy] [[MONTH] YEAR]
+
+    Display a calendar
+    -j	Use julian dates
+    -y	Display the entire year
+
+    cal -y
+    cal -j
+    cal 2018
+    cal 1 2018
+
 alias
 
     alias 新的命令='原命令 -选项/参数'
