@@ -526,6 +526,19 @@ alias
     alias 新的命令='原命令 -选项/参数'
     alias -p
 
+mkfs
+
+    fs：指定建立文件系统时的参数；
+    -t<文件系统类型>：指定要建立何种文件系统；
+    -v：显示版本信息与详细的使用方法；
+    -V：显示简要的使用方法；
+    -c：在制做档案系统前，检查该partition是否有坏轨。
+
+    mkfs -V -t msdos -c /dev/hda5
+
+    mkfs -t ext3 /dev/sda6     //将sda6分区格式化为ext3格式
+    mkfs -t ext2 /dev/sda7     //将sda7分区格式化为ext2格式
+
 ### 常用命令
 
 xargs
