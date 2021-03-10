@@ -179,3 +179,14 @@ awk '{printf "|"$1"|"$2"|"}{for (i=3;i<=NF;i++)printf $i" "}{print "|"}' txt
 {% highlight ruby %}
 awk 'NR>1 && NR<5{a=+ $3}END{print a}'  realtime.txt
 {% endhighlight %}
+
+### ip与netmask计算
+
+{% highlight ruby %}
+#将十进制ip转换为二进制
+echo 192.168.1.100|awk -F. '{for(i=1;i<=NF;i++){a="";b=$i;while(b){a=b%2 a;b=int(b/2)}printf("%08d%s",a,i!=NF?".":"\n")}}'
+#二进制ip与掩码计算网络地址
+echo 11000000.10101000.00000001.01100100 11111111.11111111.11111111.00000000 | xargs | awk -F '' '{for(i=1;i<36;i++){printf($(i+36)=="."?".":($(i+36)==1?$i:"0"))}print ""}'
+#二进制ip转换为十进制
+echo 11000000.10101000.00000001.01100100 | awk -F '' '{for(i=1;i<29;i=i+9){for(j=0;j<8;j++){t=t+2^(7-j)*$(i+j)}printf(i<20?t".":t"\n");t=0}}'
+{% endhighlight %}
